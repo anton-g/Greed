@@ -24,11 +24,12 @@ public class Player : MonoBehaviour {
 	public KeyCode left;
 	public KeyCode right;
 	public KeyCode down;
-	
+
 	void Start() {
 		controller = GetComponent<Controller2D> ();
 		
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);

@@ -3,22 +3,14 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public enum DIRECTIONS { 
-	UP = 0, 
-	RIGHT, 
-	DOWN,
-	LEFT
-}
-
 public class DoorController : RayCastController {
 	
 	public LayerMask passengerMask;
 
 	public List<bool> triggers = new List<bool>();
 
-	public DIRECTIONS publicDirection;
+	public DIRECTION doorMoveDirection;
 	public float length = 10;
-	Vector3[] localDirections = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
 	Vector3 direction;
 
 	[Range(0, 10)]
@@ -34,7 +26,7 @@ public class DoorController : RayCastController {
 	public override void Start () {
 		base.Start();
 
-		direction = localDirections[(int)publicDirection];
+		direction = Helper.Vector3FromDIRECTIONS(doorMoveDirection);
 
 		origPos = transform.position;
 		targetPos = origPos + (direction * length);

@@ -1184,7 +1184,7 @@ MonoBehaviour:
   verticalRaySpacing: 0
   col: {fileID: 0}
   triggerOnRelease: 0
-  direction: 1
+  PushableFromDirection: 0
   targetDoor: {fileID: 1918837284}
 --- !u!61 &1394394571
 BoxCollider2D:
@@ -1355,8 +1355,8 @@ MonoBehaviour:
   Goal1: {fileID: 53142073}
   Goal2: {fileID: 1648856539}
   spawnPoints:
-  - {x: 3, y: -3, z: 0}
-  - {x: -3, y: -3, z: 0}
+  - {x: 7, y: -10, z: 0}
+  - {x: 4, y: -10, z: 0}
   state: 0
 --- !u!4 &1578757488
 Transform:
@@ -1580,7 +1580,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   triggers: 
-  publicDirection: 0
+  doorMoveDirection: 0
   length: 10
   easeAmount: 3
 --- !u!1001 &1924742751
@@ -1649,6 +1649,10 @@ Prefab:
     - target: {fileID: 432380, guid: d365b2279796641d5ac070e539bea5cc, type: 2}
       propertyPath: m_LocalPosition.x
       value: 5.9000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483226, guid: d365b2279796641d5ac070e539bea5cc, type: 2}
+      propertyPath: segments
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d365b2279796641d5ac070e539bea5cc, type: 2}

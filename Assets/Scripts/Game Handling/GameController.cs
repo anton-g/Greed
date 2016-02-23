@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public int levelCount = 3;
+	public int startLevel = 1;
 	int currentLevel;
 
 	LevelController levelController;
@@ -11,25 +12,29 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		DontDestroyOnLoad(gameObject);
 
-		levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
-		currentLevel = 1;
+		currentLevel = startLevel;
+		Application.LoadLevel("Level_" + currentLevel);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (levelController == null) {
-			levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
-		}
-
-		switch (levelController.state) {
-		case LevelState.Playing:
-			break;
-		case LevelState.Completed:
-			LoadNextLevel();
-			break;
-		case LevelState.Failed:
-			RestartCurrentLevel();
-			break;
+		if (levelController) {
+			switch (levelController.state) {
+			case LevelState.Playing:
+				break;
+			case LevelState.Completed:
+				LoadNextLevel();
+				break;
+			case LevelState.Failed:
+				RestartCurrentLevel();
+				break;
+			}
+		} else {
+			try {
+				levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+			} catch (System.NullReferenceException ex) {
+				//Only ran on levelloader scene. TODO Should probably find better method.
+			}
 		}
 	}
 
