@@ -376,10 +376,10 @@ MonoBehaviour:
   passengerMask:
     serializedVersion: 2
     m_Bits: 768
-  triggers: 
-  publicDirection: 2
+  doorMoveDirection: 2
   length: 13
   easeAmount: .300000012
+  triggers: 
 --- !u!1 &695730590
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,10 +436,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onlyTopEdge: 1
+  segments: 25
   scale: .150000006
   waveScale: 4
   speed: 2
-  segments: 25
+  noiseStrength: 0
+  noiseWalk: 0
 --- !u!23 &695730594
 MeshRenderer:
   m_ObjectHideFlags: 0

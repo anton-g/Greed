@@ -994,7 +994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onlyTopEdge: 1
+  segments: 10
   scale: .100000001
   waveScale: 1
   speed: 2
-  segments: 10
+  noiseStrength: 0
+  noiseWalk: 0

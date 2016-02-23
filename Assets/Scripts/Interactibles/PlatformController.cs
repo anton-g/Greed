@@ -12,6 +12,8 @@ public class PlatformController : RayCastController {
 	[Range(0, 2)]
 	public float easeAmount;
 
+	public bool activated;
+
 	int fromWaypointIndex;
 	float percentBetweenWaypoints;
 	float nextMoveTime;
@@ -32,11 +34,17 @@ public class PlatformController : RayCastController {
 
 	void Update () {
 		UpdateRaycastOrigins ();
-		
+
+		if (activated) {
+			Move();
+		}
+	}
+
+	void Move() {
 		Vector3 velocity = CalculatePlatformMovement();
-
+		
 		CalculatePassengerMovement(velocity);
-
+		
 		MovePassengers(true);
 		transform.Translate (velocity);
 		MovePassengers(false);
@@ -98,14 +106,18 @@ public class PlatformController : RayCastController {
 
 		// Vertically moving platform
 		if (velocity.y != 0) {
-			float rayLength = Mathf.Abs (velocity.y) + skinWidth;
-			
+			float rayLength = Mathf.Abs (velocity.y * 2) + skinWidth;
+
+			Vector2 bottomLeftWithSkin = raycastOrigins.bottomLeft + (Vector2.up * skinWidth);
 			for (int i = 0; i < verticalRayCount; i ++) {
 				Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
 				rayOrigin += Vector2.right * (verticalRaySpacing * i);
 				RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, passengerMask);
-				
-				if (hit && hit.distance != 0) {
+
+				Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
+
+				//TODO Kolla tut varför hit.distance ej ska vara 0
+				if (hit /*&& hit.distance != 0*/) {
 					if (!movedPassengers.Contains(hit.transform)) {
 						movedPassengers.Add(hit.transform);
 

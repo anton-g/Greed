@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 	
 	void Update() {
 		if (controller.collisions.crushed) {
-			Debug.Log("Crushed");
+			Die ();
 		}
 		if (controller.collisions.death) {
 			Invoke("Die", 0.05f);

@@ -3,13 +3,14 @@ using System.Collections;
 
 public class WaveController : MonoBehaviour {
 	public bool onlyTopEdge = true; //TODO refactor to be able to select side
+	[Range(1, 50)]
+	public int segments = 10;
+
 	public float scale = 0.1f;
 	public float waveScale = 1.0f;
 	public float speed = 2.0f;
-	[Range(1, 50)]
-	public int segments = 10;
-	float noiseStrength = 1f;
-	float noiseWalk = 1f;
+	public float noiseStrength = 1f;
+	public float noiseWalk = 1f;
 
 	Vector3[] baseHeight;
 
@@ -41,8 +42,7 @@ public class WaveController : MonoBehaviour {
 
 		mesh = m;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (baseHeight == null) {
 			baseHeight = mesh.vertices;
@@ -51,10 +51,13 @@ public class WaveController : MonoBehaviour {
 		Vector3[] vertices = new Vector3[baseHeight.Length];
 
 		for (int i = 0; i < baseHeight.Length; i++) {
-			//Endast övre
 			if (i < baseHeight.Length / 2 || !onlyTopEdge) {
 				Vector3 vertex = baseHeight[i];
+
 				vertex.y += Mathf.Sin (Time.time * speed + vertex.y + (vertex.x * waveScale)) * scale;
+
+				vertex.y += Mathf.PerlinNoise(baseHeight[i].x + noiseWalk, baseHeight[i].y + Mathf.Sin(Time.time * 0.1f)) * noiseStrength;
+
 				vertices[i] = vertex;
 			} else {
 				vertices[i] = mesh.vertices[i];

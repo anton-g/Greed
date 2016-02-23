@@ -393,10 +393,10 @@ MonoBehaviour:
   passengerMask:
     serializedVersion: 2
     m_Bits: 768
-  triggers: 
-  publicDirection: 0
+  doorMoveDirection: 0
   length: 5
   easeAmount: .25
+  triggers: 
 --- !u!61 &604957494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1014,10 +1014,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onlyTopEdge: 1
+  segments: 25
   scale: .100000001
   waveScale: 5
   speed: 4
-  segments: 25
+  noiseStrength: 0
+  noiseWalk: 0
 --- !u!23 &2073065893
 MeshRenderer:
   m_ObjectHideFlags: 0

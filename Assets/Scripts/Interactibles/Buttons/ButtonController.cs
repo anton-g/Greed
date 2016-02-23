@@ -52,11 +52,9 @@ public abstract class ButtonController : RayCastController {
 			case DIRECTION.DOWN:
 			case DIRECTION.UP:
 				return VerticalCollisions();
-				break;
 			case DIRECTION.LEFT:
 			case DIRECTION.RIGHT:
 				return HorizontalCollisions();
-				break;
 		}
 
 		return false;

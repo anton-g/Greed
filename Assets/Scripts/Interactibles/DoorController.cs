@@ -6,15 +6,16 @@ using System.Collections.Generic;
 public class DoorController : RayCastController {
 	
 	public LayerMask passengerMask;
-
-	public List<bool> triggers = new List<bool>();
-
+	
 	public DIRECTION doorMoveDirection;
 	public float length = 10;
 	Vector3 direction;
 
 	[Range(0, 10)]
 	public float easeAmount;
+
+	[HideInInspector]
+	public List<bool> triggers = new List<bool>();
 
 	Vector3 targetPos;
 	Vector3 origPos;

@@ -40,6 +40,10 @@ public class Controller2D : RayCastController {
 		if (standingOnPlatform) {
 			collisions.below = true;
 		}
+
+		if (collisions.below) {
+			CrushingCollision(velocity);
+		}
 		
 		transform.Translate (velocity);
 	}
@@ -137,23 +141,8 @@ public class Controller2D : RayCastController {
 					velocity.x = velocity.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
 				}
 
-				if (directionY == -1) {
-					collisions.below = true;
-					collisions.above = false;
-					
-					for (int j = 0; j < verticalRayCount; j++) {
-						Vector2 orig = raycastOrigins.topLeft;
-						orig += Vector2.right * (verticalRaySpacing * i + velocity.x);
-						RaycastHit2D hit2 = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, collisionMask);
-						
-						if (hit2) {
-							collisions.crushed = true;
-						}
-					}
-				} else {
-					collisions.above = true;
-					collisions.below = false;
-				}
+				collisions.below = (directionY == -1);
+				collisions.above = (directionY != -1);
 			}
 		}
 		
@@ -169,6 +158,22 @@ public class Controller2D : RayCastController {
 					velocity.x = (hit.distance - skinWidth) * directionX;
 					collisions.slopeAngle = slopeAngle;
 				}
+			}
+		}
+	}
+
+	void CrushingCollision(Vector3 velocity) {
+		float rayLength = skinWidth;
+
+		for (int i = 0; i < verticalRayCount; i++) {
+			Vector2 orig = raycastOrigins.topLeft;
+			orig += Vector2.right * (verticalRaySpacing * i + velocity.x);
+			RaycastHit2D crushCheckHit = Physics2D.Raycast(orig, Vector2.up, rayLength, collisionMask);
+			
+			Debug.DrawRay(orig, Vector2.up * rayLength, Color.yellow);
+			
+			if (crushCheckHit && crushCheckHit.collider.gameObject.tag != "Player") {
+				collisions.crushed = true;
 			}
 		}
 	}
