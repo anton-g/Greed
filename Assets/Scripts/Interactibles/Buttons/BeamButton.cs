@@ -2,13 +2,17 @@
 using System.Collections;
 
 public class BeamButton : ButtonController {
-	public BeamController targetBeam;
+	public BeamController[] targetBeams;
 	
 	public override void ButtonPushed() {
-		targetBeam.Toggle();
+		foreach (var bc in targetBeams) {
+			bc.Toggle();
+		}
 	}
 	
 	public override void ButtonReleased() {
-		targetBeam.Toggle();
+		foreach (var bc in targetBeams) {
+			bc.Toggle();
+		}
 	}
 }

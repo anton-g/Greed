@@ -2,13 +2,17 @@
 using System.Collections;
 
 public class PlatformButton : ButtonController {
-	public PlatformController targetPlatform;
+	public PlatformController[] targetPlatforms;
 	
 	public override void ButtonPushed() {
-		targetPlatform.activated = !targetPlatform.activated;
+		foreach (var pc in targetPlatforms) {
+			pc.activated = !pc.activated;
+		}
 	}
 	
 	public override void ButtonReleased() {
-		targetPlatform.activated = !targetPlatform.activated;
+		foreach (var pc in targetPlatforms) {
+			pc.activated = !pc.activated;
+		}
 	}
 }

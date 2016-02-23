@@ -380,6 +380,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 831437963}
     m_Modifications:
+    - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: targetDoors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 423048, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -27
@@ -418,6 +422,10 @@ Prefab:
       objectReference: {fileID: 2104465439}
     - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
       propertyPath: targetDoor
+      value: 
+      objectReference: {fileID: 2104465439}
+    - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: targetDoors.Array.data[0]
       value: 
       objectReference: {fileID: 2104465439}
     m_RemovedComponents: []

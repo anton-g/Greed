@@ -2,13 +2,17 @@
 using System.Collections;
 
 public class DoorButton : ButtonController {
-	public DoorController targetDoor;
+	public DoorController[] targetDoors;
 
 	public override void ButtonPushed() {
-		targetDoor.Open();
+		foreach (var dc in targetDoors) {
+			dc.Open();
+		}
 	}
 
 	public override void ButtonReleased() {
-		targetDoor.Close();
+		foreach (var dc in targetDoors) {
+			dc.Close();
+		}
 	}
 }

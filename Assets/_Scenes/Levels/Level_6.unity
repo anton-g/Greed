@@ -1351,7 +1351,8 @@ MonoBehaviour:
   col: {fileID: 0}
   triggerOnRelease: 0
   PushableFromDirection: 0
-  targetPlatform: {fileID: 1300121762}
+  targetPlatforms:
+  - {fileID: 1300121762}
 --- !u!1 &1946285073
 GameObject:
   m_ObjectHideFlags: 0

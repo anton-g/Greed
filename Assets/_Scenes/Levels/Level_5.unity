@@ -588,6 +588,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 831437963}
     m_Modifications:
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targetBeams.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 495078, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: m_LocalPosition.x
       value: -31
@@ -626,6 +630,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeam
+      value: 
+      objectReference: {fileID: 956841390}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targetBeams.Array.data[0]
       value: 
       objectReference: {fileID: 956841390}
     m_RemovedComponents: []
@@ -1185,7 +1193,8 @@ MonoBehaviour:
   col: {fileID: 0}
   triggerOnRelease: 0
   PushableFromDirection: 0
-  targetDoor: {fileID: 1918837284}
+  targetDoors:
+  - {fileID: 1918837284}
 --- !u!61 &1394394571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1505,6 +1514,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 831437963}
     m_Modifications:
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targetBeams.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 495078, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 33
@@ -1549,6 +1562,10 @@ Prefab:
       propertyPath: m_Name
       value: BeamButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targetBeams.Array.data[0]
+      value: 
+      objectReference: {fileID: 956841390}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
   m_IsPrefabParent: 0
