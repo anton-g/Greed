@@ -1,0 +1,58 @@
+# ====== #
+# Custom #
+# ====== #
+
+/[Dd]ist/
+
+# =============== #
+# Unity generated #
+# =============== #
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+*.csproj
+*.unityproj
+*.booproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.svd
+*.apk
+[Ee]xported[Oo]bj/
+obj/
+.vs/
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+*stackdump
+
+# ============================= #
+# Visual Studio Tools for Unity #
+# ============================= #
+UnityVS.VersionSpecific.dll
+UnityVS.VersionSpecific.dll.meta
+SyntaxTree*dll
+SyntaxTree*dll.meta
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Tt]humbs.db.meta
