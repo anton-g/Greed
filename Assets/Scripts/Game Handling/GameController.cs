@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Fader))]
 public class GameController : MonoBehaviour {
 	public int levelCount = 3;
 	public int startLevel = 1;
+
+	public Fader fader;
 	int currentLevel;
 
 	LevelController levelController;
+
+	bool fading = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,10 +28,16 @@ public class GameController : MonoBehaviour {
 			case LevelState.Playing:
 				break;
 			case LevelState.Completed:
-				LoadNextLevel();
+				if (!fading) {
+					fading = true;
+					StartCoroutine("LoadNextLevel");
+				}
 				break;
 			case LevelState.Failed:
-				RestartCurrentLevel();
+				if (!fading) {
+					fading = true;
+					StartCoroutine("RestartCurrentLevel");
+				}
 				break;
 			}
 		} else {
@@ -38,14 +49,21 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void LoadNextLevel() {
+	IEnumerator LoadNextLevel() {
+		//TODO should probably disable input
 		if (currentLevel < levelCount) {
+			float fadeTime = fader.BeginFade(1);
+			yield return new WaitForSeconds(fadeTime);
 			currentLevel++;
 			Application.LoadLevel("Level_" + currentLevel);
+			fading = false;
 		}
 	}
 
-	void RestartCurrentLevel() {
+	IEnumerator RestartCurrentLevel() {
+		float fadeTime = fader.BeginFade(1);
+		yield return new WaitForSeconds(fadeTime);
 		Application.LoadLevel(Application.loadedLevelName);
+		fading = false;
 	}
 }
