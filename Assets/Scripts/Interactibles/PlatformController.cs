@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 public class PlatformController : RayCastController {
 
+	[Header("Setup")]
 	public LayerMask passengerMask;
 	public Vector3[] localWaypoints;
+
+	[Header("Movement")]
 	public float speed;
 	public bool cyclic;
 	public float waitTime;
 	[Range(0, 2)]
 	public float easeAmount;
 
+	[Header("Other")]
 	public bool activated;
 
 	int fromWaypointIndex;

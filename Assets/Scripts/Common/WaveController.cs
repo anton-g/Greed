@@ -2,13 +2,17 @@
 using System.Collections;
 
 public class WaveController : MonoBehaviour {
-	public bool onlyTopEdge = true; //TODO refactor to be able to select side
+	[Header("Setup")]
 	[Range(1, 50)]
 	public int segments = 10;
+	public bool onlyTopEdge = true; //TODO refactor to be able to select side
 
+	[Header("General")]
 	public float scale = 0.1f;
 	public float waveScale = 1.0f;
 	public float speed = 2.0f;
+
+	[Header("Noise")]
 	public float noiseStrength = 1f;
 	public float noiseWalk = 1f;
 

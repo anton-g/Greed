@@ -3,17 +3,19 @@ using System.Collections;
 
 [RequireComponent(typeof(Fader))]
 public class GameController : MonoBehaviour {
+	[Header("Game settings")]
 	public int levelCount = 3;
+
+	[Header("GUI")]
+	public Fader fader;
+
+	[Header("Debugging")]
 	public int startLevel = 1;
 
-	public Fader fader;
 	int currentLevel;
-
 	LevelController levelController;
-
 	bool fading = false;
-
-	// Use this for initialization
+	
 	void Start () {
 		DontDestroyOnLoad(gameObject);
 

@@ -16,6 +16,8 @@ public class DoorController : RayCastController {
 
 	[HideInInspector]
 	public List<bool> triggers = new List<bool>();
+	[Range(1, 5)]
+	public int requiredTriggers = 1;
 
 	Vector3 targetPos;
 	Vector3 origPos;
@@ -61,7 +63,10 @@ public class DoorController : RayCastController {
 	}
 	
 	Vector3 CalculatePlatformMovement() {
-		Vector3 to = triggers.Count > 0 ? targetPos : origPos;
+		Vector3 to = origPos;
+		if (triggers.Count > 0 && triggers.Count >= requiredTriggers) {
+			to = targetPos;
+		}
 
 		Vector3 newPosition = Vector3.SmoothDamp(transform.position, to, ref velocity, easeAmount);
 		

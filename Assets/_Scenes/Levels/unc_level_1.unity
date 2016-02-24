@@ -436,6 +436,7 @@ MonoBehaviour:
   length: 10
   easeAmount: 0
   triggers: 
+  requiredTriggers: 1
 --- !u!114 &458044491 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11495342, guid: 5c0cd0b9b8ac54d4ebdf89711a18e51a,
@@ -1191,6 +1192,7 @@ MonoBehaviour:
   length: 25
   easeAmount: .800000012
   triggers: 
+  requiredTriggers: 1
 --- !u!61 &1616754926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1349,8 +1351,8 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
-  triggerOnRelease: 0
   PushableFromDirection: 0
+  triggerOnRelease: 0
   targetPlatforms:
   - {fileID: 1300121762}
 --- !u!1 &1946285073
@@ -1520,8 +1522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ed6e2524880438c9cc1a55b572d4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlyTopEdge: 1
   segments: 35
+  onlyTopEdge: 1
   scale: .150000006
   waveScale: 20
   speed: 2

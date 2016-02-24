@@ -8,9 +8,13 @@ public enum LevelState {
 }
 
 public class LevelController : MonoBehaviour {
+	//TODO should really this be done like this?
+	//Maybe gamemanager can pass the prefabs to every levelmanager instead.
+	[Header("Setup")]
 	public GameObject player1Prefab;
 	public GameObject player2Prefab;
 
+	[Header("Level setup")]
 	public GoalController Goal1;
 	public GoalController Goal2;
 

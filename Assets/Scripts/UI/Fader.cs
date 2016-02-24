@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Fader : MonoBehaviour {
+	[Header("Setup")]
 	public Texture2D fadeOutTexture;
 	public float fadeSpeed = 0.0f;
 

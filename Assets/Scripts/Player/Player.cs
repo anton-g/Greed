@@ -3,13 +3,23 @@ using System.Collections;
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour {
+	[Header("Setup")]
+	public KeyCode jump;
+	public KeyCode left;
+	public KeyCode right;
+	public KeyCode down;
+
+	[Header("Movement")]
 	public float moveSpeed = 6;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
 
+	[Header("Jumping")]
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
+
+	[Header("Interaction settings")]
 	public float playerBounceForce = 20.0f;
 
 	float gravity;
@@ -19,11 +29,6 @@ public class Player : MonoBehaviour {
 	float velocityXSmoothing;
 	
 	Controller2D controller;
-	
-	public KeyCode jump;
-	public KeyCode left;
-	public KeyCode right;
-	public KeyCode down;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();

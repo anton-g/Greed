@@ -3,17 +3,18 @@ using System.Collections;
 
 public enum ButtonState {
 	Waiting,
-	Pushed
+	Pushed,
+	Used
 }
 
 /// <summary>
 /// Inherit from this class to create a button that controlls a specific component
 /// </summary>
 public abstract class ButtonController : RayCastController {
+	[Header("Button settings")]
+	public DIRECTION PushableFromDirection;
 	public bool triggerOnRelease;
 
-	public DIRECTION PushableFromDirection;
-	
 	bool pushed = false;
 	ButtonState state = ButtonState.Waiting;
 
@@ -37,12 +38,17 @@ public abstract class ButtonController : RayCastController {
 				ButtonPushed();
 			} else if (!triggered) {
 				pushed = false;
-				state = ButtonState.Waiting;
 
 				if (triggerOnRelease) {
 					ButtonReleased();
+					state = ButtonState.Waiting;
+				} else {
+					state = ButtonState.Used;
 				}
 			}
+			break;
+		case ButtonState.Used:
+			//TODO change color?
 			break;
 		}
 	}
