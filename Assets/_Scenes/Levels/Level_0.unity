@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCount: 5
-  startLevel: 1
   fader: {fileID: 1416002057}
+  startLevel: 1
 --- !u!4 &1416002056
 Transform:
   m_ObjectHideFlags: 0
@@ -225,5 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654fc73242ebd43619a263a111afa965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 2800000, guid: 2f78d8a35128347158c08f04aae8600e, type: 3}
+  levelFadeTexture: {fileID: 2800000, guid: 2f78d8a35128347158c08f04aae8600e, type: 3}
+  deathFadeTexture: {fileID: 2800000, guid: ff338f9abef4e42d08a22d46ff936ec9, type: 3}
   fadeSpeed: .800000012

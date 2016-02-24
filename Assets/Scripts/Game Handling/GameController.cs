@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour {
 			try {
 				levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
 			} catch (System.NullReferenceException ex) {
+				Debug.Log(ex.Message);
 				//Only ran on levelloader scene. TODO Should probably find better method.
 			}
 		}
@@ -54,7 +55,7 @@ public class GameController : MonoBehaviour {
 	IEnumerator LoadNextLevel() {
 		//TODO should probably disable input
 		if (currentLevel < levelCount) {
-			float fadeTime = fader.BeginFade(1);
+			float fadeTime = fader.BeginFade(1, false);
 			yield return new WaitForSeconds(fadeTime);
 			currentLevel++;
 			Application.LoadLevel("Level_" + currentLevel);
@@ -63,7 +64,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	IEnumerator RestartCurrentLevel() {
-		float fadeTime = fader.BeginFade(1);
+		float fadeTime = fader.BeginFade(1, true);
 		yield return new WaitForSeconds(fadeTime);
 		Application.LoadLevel(Application.loadedLevelName);
 		fading = false;

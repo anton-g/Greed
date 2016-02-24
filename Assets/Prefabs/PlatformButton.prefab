@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3396952}
   - 23: {fileID: 2365004}
   - 61: {fileID: 6103940}
+  - 114: {fileID: 11434874}
   m_Layer: 10
   m_Name: PlatformButton
   m_TagString: Untagged
@@ -76,13 +77,48 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &11434874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11363ecd859a548f3a73bc905fa37871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 768
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  col: {fileID: 0}
+  pushedMaterial: {fileID: 2100000, guid: 4d2e23128e7094ce5b1953a00d2a1939, type: 2}
+  pushableFromDirection: 0
+  triggerOnRelease: 1
+  targetPlatforms: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: collisionMask.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d2e23128e7094ce5b1953a00d2a1939, type: 2}
+    - target: {fileID: 0}
+      propertyPath: triggerOnRelease
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116402}

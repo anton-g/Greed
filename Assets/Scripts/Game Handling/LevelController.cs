@@ -25,16 +25,14 @@ public class LevelController : MonoBehaviour {
 
 	GameObject player1Object;
 	GameObject player2Object;
-
-	// Use this for initialization
+	
 	void Start () {
 		player1Object = Instantiate(player1Prefab, spawnPoints[0], Quaternion.identity) as GameObject;
 		player2Object = Instantiate(player2Prefab, spawnPoints[1], Quaternion.identity) as GameObject;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		if (!player1Object || !player2Object) {
+		if (!player1Object.activeSelf || !player2Object.activeSelf) {
 			state = LevelState.Failed;
 		}
 

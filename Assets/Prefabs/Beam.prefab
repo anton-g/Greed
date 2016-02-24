@@ -177,11 +177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ed6e2524880438c9cc1a55b572d4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  segments: 25
   onlyTopEdge: 0
   scale: .100000001
   waveScale: 60
   speed: 20
-  segments: 25
+  noiseStrength: 0
+  noiseWalk: 0
 --- !u!114 &11490414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2381,7 +2383,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: noiseStrength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: noiseWalk
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149614}

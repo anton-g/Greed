@@ -11,15 +11,27 @@ public enum ButtonState {
 /// Inherit from this class to create a button that controlls a specific component
 /// </summary>
 public abstract class ButtonController : RayCastController {
+	[Header("Button appearance")]
+	public Material pushedMaterial;
+
 	[Header("Button settings")]
-	public DIRECTION PushableFromDirection;
+	public DIRECTION pushableFromDirection;
 	public bool triggerOnRelease;
 
-	bool pushed = false;
-	ButtonState state = ButtonState.Waiting;
+	private bool pushed = false;
+	private ButtonState state = ButtonState.Waiting; 
+	private Renderer rend;
+	private Material origMat;
 
 	public abstract void ButtonPushed();
 	public abstract void ButtonReleased();
+
+	public override void Awake() {
+		base.Awake();
+
+		rend = GetComponent<Renderer>();
+		origMat = rend.material;
+	}
 
 	void Update () {
 		UpdateRaycastOrigins ();
@@ -34,14 +46,11 @@ public abstract class ButtonController : RayCastController {
 			break;
 		case ButtonState.Pushed:
 			if (!pushed) {
-				pushed = true;
-				ButtonPushed();
+				TriggerButtonPushed();
 			} else if (!triggered) {
 				pushed = false;
-
 				if (triggerOnRelease) {
-					ButtonReleased();
-					state = ButtonState.Waiting;
+					TriggerButtonReleased();
 				} else {
 					state = ButtonState.Used;
 				}
@@ -53,8 +62,22 @@ public abstract class ButtonController : RayCastController {
 		}
 	}
 
+	void TriggerButtonPushed() {
+		rend.material = pushedMaterial;
+
+		pushed = true;
+		ButtonPushed();
+	}
+
+	void TriggerButtonReleased() {
+		rend.material = origMat;
+
+		ButtonReleased();
+		state = ButtonState.Waiting;
+	}
+
 	bool CheckForCollision() {
-		switch (PushableFromDirection) {
+		switch (pushableFromDirection) {
 			case DIRECTION.DOWN:
 			case DIRECTION.UP:
 				return VerticalCollisions();
@@ -70,9 +93,9 @@ public abstract class ButtonController : RayCastController {
 		float rayLength = skinWidth * 2;
 		
 		for (int i = 0; i < verticalRayCount; i ++) {
-			Vector2 rayOrigin = (PushableFromDirection == DIRECTION.DOWN) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
+			Vector2 rayOrigin = (pushableFromDirection == DIRECTION.DOWN) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
 			rayOrigin += Vector2.right * (verticalRaySpacing * i);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Helper.Vector3FromDIRECTIONS(PushableFromDirection), rayLength, collisionMask);
+			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Helper.Vector3FromDIRECTIONS(pushableFromDirection), rayLength, collisionMask);
 			
 			Debug.DrawRay(rayOrigin, Vector2.up * rayLength, Color.red);
 			
@@ -87,9 +110,9 @@ public abstract class ButtonController : RayCastController {
 		float rayLength = skinWidth * 2;
 		
 		for (int i = 0; i < verticalRayCount; i ++) {
-			Vector2 rayOrigin = (PushableFromDirection == DIRECTION.LEFT) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
+			Vector2 rayOrigin = (pushableFromDirection == DIRECTION.LEFT) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
 			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Helper.Vector3FromDIRECTIONS(PushableFromDirection), rayLength, collisionMask);
+			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Helper.Vector3FromDIRECTIONS(pushableFromDirection), rayLength, collisionMask);
 			
 			Debug.DrawRay(rayOrigin, Vector2.up * rayLength, Color.red);
 			

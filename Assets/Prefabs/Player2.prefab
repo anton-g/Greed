@@ -89,15 +89,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79109a1e999e492abf03f7563d1a140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 119
+  left: 97
+  right: 100
+  down: 115
+  crushParticle: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2
   timeToJumpApex: .349999994
   playerBounceForce: 35
-  jump: 119
-  left: 97
-  right: 100
-  down: 115
 --- !u!114 &11497330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +138,10 @@ Prefab:
       propertyPath: verticalRayCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: crushParticle
+      value: 
+      objectReference: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197674}

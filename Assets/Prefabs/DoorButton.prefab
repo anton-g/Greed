@@ -96,16 +96,21 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
+  pushedMaterial: {fileID: 2100000, guid: 4d2e23128e7094ce5b1953a00d2a1939, type: 2}
+  pushableFromDirection: 0
   triggerOnRelease: 0
-  direction: 1
-  targetDoor: {fileID: 0}
+  targetDoors: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: pushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d2e23128e7094ce5b1953a00d2a1939, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 182478}

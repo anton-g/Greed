@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
 	public KeyCode right;
 	public KeyCode down;
 
+	[Header("Appearance")]
+	public GameObject crushParticle;
+
 	[Header("Movement")]
 	public float moveSpeed = 6;
 	float accelerationTimeAirborne = .2f;
@@ -41,9 +44,8 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update() {
-		if (controller.collisions.crushed) {
-			Die ();
-		}
+		CheckCrushed();
+
 		if (controller.collisions.death) {
 			Invoke("Die", 0.05f);
 		}
@@ -84,7 +86,14 @@ public class Player : MonoBehaviour {
 		} 
 	}
 
+	void CheckCrushed() {
+		if (controller.collisions.crushed) {
+			Instantiate(crushParticle, transform.position, Quaternion.identity);
+			Die ();
+		}
+	}
+
 	void Die() {
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 	}
 }
