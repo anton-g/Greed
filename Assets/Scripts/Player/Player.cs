@@ -104,7 +104,6 @@ public class Player : MonoBehaviour {
 	#region PositionHint management
 
 	void OnBecameInvisible() {
-		Debug.Log("INVISBLE!!!!11");
 		if (gameObject.activeSelf) {
 			if (!positionHintObject) {
 				positionHintObject = Instantiate(positionIndicator, transform.position, Quaternion.identity) as GameObject;

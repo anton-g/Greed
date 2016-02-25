@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraFollow : MonoBehaviour {
+public class CameraFollowOld : MonoBehaviour {
 	public Controller2D target;
 	public float verticalOffset;
 	public float lookAheadDistanceX;
