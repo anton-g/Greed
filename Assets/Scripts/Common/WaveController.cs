@@ -19,8 +19,7 @@ public class WaveController : MonoBehaviour {
 	Vector3[] baseHeight;
 
 	Mesh mesh;
-
-	// Use this for initialization
+	
 	void Start () {
 		MeshFilter mf = GetComponent<MeshFilter>();
 		Mesh m = new Mesh();
