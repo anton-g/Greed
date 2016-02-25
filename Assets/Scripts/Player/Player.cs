@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
 	public KeyCode right;
 	public KeyCode down;
 
+	public GameObject positionIndicator;
+
 	[Header("Appearance")]
 	public GameObject crushParticle;
 
@@ -32,6 +34,8 @@ public class Player : MonoBehaviour {
 	float velocityXSmoothing;
 	
 	Controller2D controller;
+
+	GameObject positionHintObject;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -83,7 +87,7 @@ public class Player : MonoBehaviour {
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
-		} 
+		}
 	}
 
 	void CheckCrushed() {
@@ -96,4 +100,26 @@ public class Player : MonoBehaviour {
 	void Die() {
 		gameObject.SetActive(false);
 	}
+
+	#region PositionHint management
+
+	void OnBecameInvisible() {
+		Debug.Log("INVISBLE!!!!11");
+		if (gameObject.activeSelf) {
+			if (!positionHintObject) {
+				positionHintObject = Instantiate(positionIndicator, transform.position, Quaternion.identity) as GameObject;
+				positionHintObject.GetComponent<HintController>().target = gameObject;
+			} else {
+				positionHintObject.SetActive(true);
+			}
+		}
+	}
+
+	void OnBecameVisible() {
+		if (gameObject.activeSelf && positionHintObject) {
+			positionHintObject.SetActive(false);
+		}
+	}
+
+	#endregion
 }

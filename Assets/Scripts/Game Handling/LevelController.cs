@@ -29,6 +29,8 @@ public class LevelController : MonoBehaviour {
 	void Start () {
 		player1Object = Instantiate(player1Prefab, spawnPoints[0], Quaternion.identity) as GameObject;
 		player2Object = Instantiate(player2Prefab, spawnPoints[1], Quaternion.identity) as GameObject;
+
+		SetupCamera();
 	}
 
 	void Update () {
@@ -41,6 +43,12 @@ public class LevelController : MonoBehaviour {
 		if (first && second) {
 			state = LevelState.Completed;
 		}
+	}
+
+	void SetupCamera() {
+		CameraFollow cam = Camera.main.GetComponent<CameraFollow>();
+		cam.p1 = player1Object;
+		cam.p2 = player2Object;
 	}
 
 	void OnDrawGizmos() {
