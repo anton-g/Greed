@@ -85,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 174854}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 4, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.64022994, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 402272}
   m_RootOrder: 0
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ed6e2524880438c9cc1a55b572d4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segments: 10
+  segments: 35
   onlyTopEdge: 1
   scale: .100000001
-  waveScale: 2
+  waveScale: 5
   speed: 2
   noiseStrength: 0
   noiseWalk: 0
@@ -375,7 +375,7 @@ ParticleSystem:
     radius: 5
     angle: 25
     length: 5
-    boxX: 70
+    boxX: 19
     boxY: 1
     boxZ: 1
     arc: 360
@@ -386,7 +386,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 2
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:

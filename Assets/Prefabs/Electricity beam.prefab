@@ -47,7 +47,7 @@ GameObject:
   - 23: {fileID: 2345756}
   - 61: {fileID: 6193478}
   m_Layer: 10
-  m_Name: Floor (1)
+  m_Name: Left edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ GameObject:
   - 23: {fileID: 2339158}
   - 61: {fileID: 6166872}
   m_Layer: 10
-  m_Name: Floor (2)
+  m_Name: Right edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c14fea5dcefab4d5d839232a4a79747c, type: 2}
+  - {fileID: 2100000, guid: 6e7e60b61ee6d4c9c872505805e7c5a9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -280,7 +280,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c14fea5dcefab4d5d839232a4a79747c, type: 2}
+  - {fileID: 2100000, guid: 6e7e60b61ee6d4c9c872505805e7c5a9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3604,7 +3604,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c4ae38121a0194a91a5fc3d413e33e2f, type: 2}
+  - {fileID: 2100000, guid: 6e7e60b61ee6d4c9c872505805e7c5a9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3642,7 +3642,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c4ae38121a0194a91a5fc3d413e33e2f, type: 2}
+  - {fileID: 2100000, guid: 6e7e60b61ee6d4c9c872505805e7c5a9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3680,7 +3680,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c14fea5dcefab4d5d839232a4a79747c, type: 2}
+  - {fileID: 2100000, guid: 6e7e60b61ee6d4c9c872505805e7c5a9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
