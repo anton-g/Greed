@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Electricity glow
+  m_Name: Goal
   m_Shader: {fileID: 4800000, guid: 3f387b3c7760d5a488b5596b42425701, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -137,11 +137,11 @@ Material:
       data:
         first:
           name: _MKGlowPower
-        second: 1
+        second: .699999988
       data:
         first:
           name: _MKGlowTexStrength
-        second: 2
+        second: 1
       data:
         first:
           name: _MKGlowOffSet
@@ -150,16 +150,16 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: .682657242, b: .779411793, a: 1}
+        second: {r: .375, g: .375, b: .375, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0, g: .917241335, b: 1, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _MKGlowColor
-        second: {r: 0, g: .917241335, b: 1, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _MKGlowTexColor
-        second: {r: 0, g: .83448267, b: 1, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}

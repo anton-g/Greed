@@ -377,7 +377,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .838235259, g: .838235259, b: .838235259, a: .0196078438}
+  m_BackGroundColor: {r: .172549024, g: .172549024, b: .172549024, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -485,6 +485,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2390166, guid: 5c0cd0b9b8ac54d4ebdf89711a18e51a, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ece64a80c71546a6890e583a7cb274a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c0cd0b9b8ac54d4ebdf89711a18e51a, type: 2}
   m_IsPrefabParent: 0
@@ -740,6 +744,10 @@ Prefab:
       propertyPath: m_Name
       value: Goal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2390166, guid: 5c0cd0b9b8ac54d4ebdf89711a18e51a, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ece64a80c71546a6890e583a7cb274a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c0cd0b9b8ac54d4ebdf89711a18e51a, type: 2}
   m_IsPrefabParent: 0

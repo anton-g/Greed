@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Goal
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
+  m_Name: Player1
+  m_Shader: {fileID: 4800000, guid: 3f387b3c7760d5a488b5596b42425701, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MKGlowTex
+        second:
+          m_Texture: {fileID: 2800000, guid: d2bfdb919488ef040b6f7e30c6d08ebf, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -127,12 +134,32 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _MKGlowPower
+        second: .449999988
+      data:
+        first:
+          name: _MKGlowTexStrength
+        second: 2
+      data:
+        first:
+          name: _MKGlowOffSet
+        second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: .375, g: .375, b: .375, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _MKGlowColor
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _MKGlowTexColor
+        second: {r: 1, g: 0, b: 0, a: 1}
