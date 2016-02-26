@@ -379,6 +379,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e1976b860234c968503646e2692fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beams:
+  - {fileID: 196844}
+  emitters:
+  - {fileID: 19852218}
+  - {fileID: 19821526}
+  - {fileID: 19851300}
 --- !u!198 &19821526
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3619,6 +3625,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: beams.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: emitters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: noiseStrength
       value: 0
