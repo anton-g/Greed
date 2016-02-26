@@ -68,6 +68,11 @@ public class Controller2D : RayCastController {
 					continue;
 				}
 
+				if (hit.collider.tag == "Death") {
+					collisions.death = true;
+					continue;
+				}
+
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				
 				if (i == 0 && slopeAngle <= maxClimbAngle) {
