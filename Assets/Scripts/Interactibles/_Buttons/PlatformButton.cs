@@ -15,4 +15,11 @@ public class PlatformButton : ButtonController {
 			pc.activated = !pc.activated;
 		}
 	}
+
+	void OnDrawGizmosSelected() {
+		foreach (var item in targetPlatforms) {
+			Gizmos.color = new Color(255.0f, 255.0f, 255.0f, 0.3f);
+			Gizmos.DrawLine(transform.position, item.transform.position);
+		}
+	}
 }

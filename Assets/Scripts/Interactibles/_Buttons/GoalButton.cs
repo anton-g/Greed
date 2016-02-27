@@ -15,4 +15,11 @@ public class GoalButton : ButtonController {
 			dc.Toggle();
 		}
 	}
+
+	void OnDrawGizmosSelected() {
+		foreach (var item in targetGoals) {
+			Gizmos.color = new Color(255.0f, 255.0f, 255.0f, 0.3f);
+			Gizmos.DrawLine(transform.position, item.transform.position);
+		}
+	}
 }
