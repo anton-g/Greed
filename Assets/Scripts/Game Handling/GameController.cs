@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
 				levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
 			} catch (System.NullReferenceException ex) {
 				Debug.Log(ex.Message);
-				//Only ran on levelloader scene. TODO Should probably find better method.
+				//Only runs on levelloader scene. TODO Should probably find better method.
 			}
 		}
 	}

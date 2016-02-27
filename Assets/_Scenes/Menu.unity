@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1647672297}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &631900865
@@ -792,7 +792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CO-OP PLATFORMER PUZZLE GAME
+  m_Text: 2D CO-OP PLATFORMER PUZZLE GAME
 --- !u!222 &1044384059
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1024,8 +1024,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 1, y: .643441916}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: -354, y: -16}
+  m_AnchoredPosition: {x: 0, y: 4.5}
+  m_SizeDelta: {x: -354, y: -17}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1647672299
 MonoBehaviour:

@@ -44,9 +44,9 @@ public class LevelController : MonoBehaviour {
 	}
 
 	void SetupCamera() {
-		CameraFollow cam = Camera.main.GetComponent<CameraFollow>();
+		/*CameraFollow cam = Camera.main.GetComponent<CameraFollow>();
 		cam.p1 = player1Object;
-		cam.p2 = player2Object;
+		cam.p2 = player2Object;*/
 	}
 
 	void OnDrawGizmos() {

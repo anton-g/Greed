@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCount: 6
   fader: {fileID: 1416002057}
-  startLevel: 4
+  startLevel: 1
 --- !u!4 &1416002056
 Transform:
   m_ObjectHideFlags: 0
