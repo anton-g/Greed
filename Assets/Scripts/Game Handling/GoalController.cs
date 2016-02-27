@@ -2,6 +2,12 @@
 using System.Collections;
 
 public class GoalController : RayCastController {
+	[Header("Appearance")]
+	public Material inactiveMaterial;
+
+	public bool active = true;
+	[HideInInspector]
+	public bool playerIsInGoal;
 
 	Renderer rend;
 	Material origMat;
@@ -13,7 +19,26 @@ public class GoalController : RayCastController {
 		origMat = rend.material;
 	}
 
-	public bool CheckPlayerInGoal() {
+	void Update() {
+		//TODO improve performance. Dont apply material every frame..
+		if (active) {
+			GameObject hitPlayer = GetPlayerInGoal();
+
+			if (hitPlayer != null) {
+				playerIsInGoal = true;
+
+				rend.material = hitPlayer.GetComponent<Renderer>().material;
+			} else {
+				playerIsInGoal = false;
+
+				rend.material = origMat;
+			}
+		} else {
+			rend.material = inactiveMaterial;
+		}
+	}
+
+	GameObject GetPlayerInGoal() {
 		UpdateRaycastOrigins ();
 
 		GameObject hitObject = null;
@@ -25,17 +50,14 @@ public class GoalController : RayCastController {
 			Debug.DrawRay(rayOrigin, Vector2.up * skinWidth * 2, Color.red);
 			
 			if (hit) {
-				hitObject = hit.transform.gameObject;
+				hitObject = hit.collider.gameObject;
 			}
 		}
 
-		//TODO performance issues
-		if (hitObject) {
-			rend.material = hitObject.GetComponent<Renderer>().material;
-			return true;
-		} else {
-			rend.material = origMat;
-			return false;
-		}
+		return hitObject;
+	}
+
+	public void Toggle() {
+		this.active = !this.active;
 	}
 }

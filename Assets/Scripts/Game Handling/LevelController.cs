@@ -38,9 +38,7 @@ public class LevelController : MonoBehaviour {
 			state = LevelState.Failed;
 		}
 
-		bool first = Goal1.CheckPlayerInGoal();
-		bool second = Goal2.CheckPlayerInGoal();
-		if (first && second) {
+		if (Goal1.playerIsInGoal && Goal2.playerIsInGoal) {
 			state = LevelState.Completed;
 		}
 	}
