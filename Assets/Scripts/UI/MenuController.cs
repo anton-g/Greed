@@ -3,18 +3,10 @@ using System.Collections;
 
 public class MenuController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public GameController gc;
 
 	public void OnClickContinue() {
-		Application.LoadLevel("Level_0");
+		gc.StartGame();
 	}
 
 	public void OnClickNewGame() {
