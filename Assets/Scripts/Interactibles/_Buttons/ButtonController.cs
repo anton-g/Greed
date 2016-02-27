@@ -9,14 +9,16 @@ public enum ButtonState {
 
 /// <summary>
 /// Inherit from this class to create a button that controlls a specific component
+/// T: Target controller for the button inheriting from this class.
 /// </summary>
-public abstract class ButtonController : RayCastController {
+public abstract class ButtonController<T> : RayCastController where T:MonoBehaviour {
 	[Header("Button appearance")]
 	public Material pushedMaterial;
 
 	[Header("Button settings")]
 	public DIRECTION pushableFromDirection;
 	public bool triggerOnRelease;
+	public T[] targets;
 
 	private bool pushed = false;
 	private ButtonState state = ButtonState.Waiting; 
@@ -121,5 +123,12 @@ public abstract class ButtonController : RayCastController {
 			}
 		}
 		return false;
+	}
+
+	void OnDrawGizmosSelected() {
+		foreach (MonoBehaviour item in targets) {
+			Gizmos.color = new Color(255.0f, 255.0f, 255.0f, 0.3f);
+			Gizmos.DrawLine(transform.position, item.transform.position);
+		}
 	}
 }

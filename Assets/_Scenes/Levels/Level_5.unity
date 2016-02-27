@@ -513,6 +513,10 @@ Prefab:
     m_TransformParent: {fileID: 831437963}
     m_Modifications:
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeams.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -558,6 +562,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeams.Array.data[0]
+      value: 
+      objectReference: {fileID: 2052912804}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 2052912804}
     m_RemovedComponents: []
@@ -1350,6 +1358,10 @@ Prefab:
     m_TransformParent: {fileID: 831437963}
     m_Modifications:
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeams.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1399,6 +1411,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeams.Array.data[0]
+      value: 
+      objectReference: {fileID: 2052912804}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 2052912804}
     m_RemovedComponents: []
@@ -1582,6 +1598,10 @@ Prefab:
     m_TransformParent: {fileID: 831437963}
     m_Modifications:
     - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: targets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
       propertyPath: targetDoors.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1619,6 +1639,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
       propertyPath: targetDoors.Array.data[0]
+      value: 
+      objectReference: {fileID: 1918837284}
+    - target: {fileID: 11405246, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 1918837284}
     m_RemovedComponents: []
