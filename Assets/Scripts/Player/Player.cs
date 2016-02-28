@@ -4,10 +4,9 @@ using System.Collections;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour {
 	[Header("Setup")]
-	public KeyCode jump;
-	public KeyCode left;
-	public KeyCode right;
-	public KeyCode down;
+	public string JumpButtonName;
+	public string HorizontalButtonName;
+	public string VerticalButtonName;
 
 	public GameObject positionIndicator;
 
@@ -59,24 +58,25 @@ public class Player : MonoBehaviour {
 		}
 
 		float moveDir = 0;
-		if (Input.GetKey(left)) {
+		/*if (Input.GetKey(left)) {
 			moveDir = -1;
 		}
 		if (Input.GetKey(right)) {
 			moveDir = 1;
-		}
+		}*/
+		moveDir = Input.GetAxisRaw(HorizontalButtonName);
 
 		Vector2 input = new Vector2 (moveDir, Input.GetAxisRaw ("Vertical"));
 
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
-		if (Input.GetKeyDown (jump)) {
+		if (Input.GetButtonDown (JumpButtonName)) {
 			if (controller.collisions.below) {
 				velocity.y = maxJumpVelocity;
 			}
 		}
-		if (Input.GetKeyUp(jump)) {
+		if (Input.GetButtonUp(JumpButtonName)) {
 			if (velocity.y > minJumpVelocity) {
 				velocity.y = minJumpVelocity;
 			}

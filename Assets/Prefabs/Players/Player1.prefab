@@ -93,6 +93,9 @@ MonoBehaviour:
   left: 276
   right: 275
   down: 274
+  JumpButtonName: Player1Jump
+  HorizontalButtonName: Player1Horizontal
+  VerticalButtonName: Player1Vertical
   positionIndicator: {fileID: 147656, guid: e850fdf565aff4d8489f20e3ac81e313, type: 2}
   crushParticle: {fileID: 117726, guid: 122703cba0f3341df9e8883f50c1e233, type: 2}
   moveSpeed: 20
@@ -151,6 +154,30 @@ Prefab:
       propertyPath: positionIndicator
       value: 
       objectReference: {fileID: 147656, guid: e850fdf565aff4d8489f20e3ac81e313, type: 2}
+    - target: {fileID: 0}
+      propertyPath: JumpButtonName
+      value: Player1Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: LeftButtonName
+      value: Player1Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RightButtonName
+      value: Player1Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DownButtonName
+      value: Player1Down
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HorizontalButtonName
+      value: Player1Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VerticalButtonName
+      value: Player1Vertical
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196524}
