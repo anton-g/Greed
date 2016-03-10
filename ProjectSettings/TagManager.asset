@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Through
   - Death
+  - Pushable
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
-  - Player 1
-  - Player 2
+  - Player1
+  - Player2
   - Obstacles
-  - 
+  - Pushable
   - 
   - 
   - 

@@ -72,6 +72,11 @@ public class Controller2D : RayCastController {
 					collisions.death = true;
 					continue;
 				}
+                
+                if (hit.collider.tag == "Pushable") {
+                    //TODO fix performance
+                    collisions.pushableCollider = hit.collider.GetComponent<Controller2D>();
+                }
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				
@@ -115,7 +120,7 @@ public class Controller2D : RayCastController {
 			
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 			
-			if (hit) {
+			if (hit) {                
 				if (hit.collider.tag == "Through") {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
@@ -130,7 +135,7 @@ public class Controller2D : RayCastController {
 					}
 				}
 
-				if (hit.collider.tag == "Player" && directionY == -1) {
+				if ((hit.collider.tag == "Player1" || hit.collider.tag == "Player2") && directionY == -1) {
 					collisions.playerCollisionBelow = true;
 				}
 
@@ -177,7 +182,7 @@ public class Controller2D : RayCastController {
 			
 			Debug.DrawRay(orig, Vector2.up * rayLength, Color.yellow);
 			
-			if (crushCheckHit && crushCheckHit.collider.gameObject.tag != "Player") {
+			if (crushCheckHit && crushCheckHit.collider.gameObject.tag != "Player1" && crushCheckHit.collider.gameObject.tag != "Player2") {
 				collisions.crushed = true;
 			}
 		}
@@ -237,6 +242,7 @@ public class Controller2D : RayCastController {
 		public bool crushed;
 		public bool death;
 		public bool playerCollisionBelow;
+        public Controller2D pushableCollider;
 		
 		public void Reset() {
 			above = below = false;
@@ -249,6 +255,8 @@ public class Controller2D : RayCastController {
 			
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
+            
+            pushableCollider = null;
 		}
 	}
 }
