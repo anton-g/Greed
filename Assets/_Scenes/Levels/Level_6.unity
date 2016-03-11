@@ -170,7 +170,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targets.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeams.Array.size
@@ -235,7 +235,11 @@ Prefab:
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targets.Array.data[1]
       value: 
-      objectReference: {fileID: 421751584}
+      objectReference: {fileID: 1915206069}
+    - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
+      propertyPath: targets.Array.data[2]
+      value: 
+      objectReference: {fileID: 752950286}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
   m_IsPrefabParent: 0
@@ -2130,6 +2134,7 @@ Transform:
   - {fileID: 593805227}
   - {fileID: 140248487}
   - {fileID: 151319120}
+  - {fileID: 847173363}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &847173362
@@ -2164,8 +2169,8 @@ Transform:
   - {fileID: 1237551510}
   - {fileID: 851656500}
   - {fileID: 1681531605}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 831437963}
+  m_RootOrder: 8
 --- !u!1 &851656499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,8 +3745,6 @@ MonoBehaviour:
   pushableFromDirection: 0
   triggerOnRelease: 0
   targets:
-  - {fileID: 2048829910}
-  targetDoors:
   - {fileID: 2048829910}
 --- !u!4 &1795285452 stripped
 Transform:
