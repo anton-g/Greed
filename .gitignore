@@ -29,6 +29,7 @@
 [Ee]xported[Oo]bj/
 obj/
 .vs/
+.vscode/
 
 # Unity3D generated meta files
 *.pidb.meta
