@@ -10,13 +10,13 @@ public class GoalController : RayCastController {
 	public bool playerIsInGoal;
 
 	Renderer rend;
-	Material origMat;
+	Color origColor;
 
 	public override void Start () {
 		base.Start ();
 
 		rend = GetComponent<Renderer>();
-		origMat = rend.material;
+		origColor = rend.material.color;
 	}
 
 	void Update() {
@@ -27,11 +27,11 @@ public class GoalController : RayCastController {
 			if (hitPlayer != null) {
 				playerIsInGoal = true;
 
-				rend.material = hitPlayer.GetComponent<Renderer>().material;
+				rend.material.color = hitPlayer.GetComponent<SpriteRenderer>().color;
 			} else {
 				playerIsInGoal = false;
 
-				rend.material = origMat;
+				rend.material.color = origColor;
 			}
 		} else {
 			rend.material = inactiveMaterial;
