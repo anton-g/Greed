@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour {
 		case GameState.GameMenu:
 			break;
 		case GameState.GamePlaying:
+            CheckInput();
 			CheckForLevelCompletion();
 			break;
 		}
@@ -44,6 +45,15 @@ public class GameController : MonoBehaviour {
 		currentLevel = startLevel;
 		Application.LoadLevel("Level_" + currentLevel);
 	}
+
+    void CheckInput() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            if (!fading) {
+				fading = true;
+				StartCoroutine("RestartCurrentLevel");
+			}
+        }
+    }
 
 	void CheckForLevelCompletion() {
 		if (levelController) {
