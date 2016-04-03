@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour {
@@ -35,10 +36,9 @@ public class Player : MonoBehaviour {
 	
 	Controller2D controller;
 	GameObject positionHintObject;
-    //Eye data
     Vector3 leftEyeIdle;
     Vector3 rightEyeIdle;
-    //End eye data
+    float eyeBlinkTime;
 
     void Awake() {
         leftEyeIdle = leftEye.localPosition;
@@ -48,8 +48,10 @@ public class Player : MonoBehaviour {
 	void Start() {
 		controller = GetComponent<Controller2D> ();
         
+        eyeBlinkTime = Random.Range(5f, 20f);
+        InvokeRepeating("BlinkEyes", eyeBlinkTime, eyeBlinkTime);
+        
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
-
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
@@ -88,10 +90,6 @@ public class Player : MonoBehaviour {
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime, input);
 
-        //anim.SetFloat("yVelocity", velocity.y);
-        //anim.SetBool("Grounded", controller.collisions.below);
-        //anim.Play("playerBlink");
-        
         if (controller.collisions.pushableCollider) {
             Vector3 pushVel = new Vector3(velocity.x / 2.0f, 0.0f, 0.0f);
             controller.collisions.pushableCollider.Move(pushVel * Time.deltaTime, false);
@@ -149,6 +147,20 @@ public class Player : MonoBehaviour {
         
         Vector3 rightPos = new Vector3(rightX, rightY, -0.1f);
         rightEye.localPosition = Vector3.Lerp(rightEye.localPosition, rightPos, 0.1f); 
+    }
+    
+    void BlinkEyes() {
+        StartCoroutine(Blink());
+    }
+    
+    IEnumerator Blink() {
+        rightEye.gameObject.SetActive(false);
+        leftEye.gameObject.SetActive(false);
+        
+        yield return new WaitForSeconds(0.1f);
+        
+        rightEye.gameObject.SetActive(true);
+        leftEye.gameObject.SetActive(true);
     }
 
 	#region PositionHint management
