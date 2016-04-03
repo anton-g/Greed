@@ -27,7 +27,7 @@ public class GoalController : RayCastController {
 			if (hitPlayer != null) {
 				playerIsInGoal = true;
 
-				rend.material.color = hitPlayer.GetComponent<SpriteRenderer>().color;
+				rend.material.color = hitPlayer.GetComponent<Player>().graphic.color;
 			} else {
 				playerIsInGoal = false;
 
