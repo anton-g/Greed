@@ -4,6 +4,7 @@ using System.Collections;
 public class GoalController : RayCastController {
 	[Header("Appearance")]
 	public Material inactiveMaterial;
+    public ParticleSystem particles;
 
 	public bool active = true;
 	[HideInInspector]
@@ -11,12 +12,18 @@ public class GoalController : RayCastController {
 
 	Renderer rend;
 	Color origColor;
+    float origEmissionRate;
+    Renderer particleRenderer;
 
 	public override void Start () {
 		base.Start ();
 
 		rend = GetComponent<Renderer>();
 		origColor = rend.material.color;
+        
+        origEmissionRate = particles.emissionRate; 
+        particles.emissionRate = active ? origEmissionRate : 0.0f;
+        particleRenderer = particles.GetComponent<Renderer>();
 	}
 
 	void Update() {
@@ -28,10 +35,12 @@ public class GoalController : RayCastController {
 				playerIsInGoal = true;
 
 				rend.material.color = hitPlayer.GetComponent<Player>().graphic.color;
+                particleRenderer.material.color = rend.material.color;
 			} else {
 				playerIsInGoal = false;
 
 				rend.material.color = origColor;
+                particleRenderer.material.color = origColor;
 			}
 		} else {
 			rend.material = inactiveMaterial;
@@ -59,5 +68,6 @@ public class GoalController : RayCastController {
 
 	public void Toggle() {
 		this.active = !this.active;
+        particles.emissionRate = active ? origEmissionRate : 0.0f;
 	}
 }
