@@ -17,7 +17,7 @@ public class LevelController : MonoBehaviour {
 	[Header("Level setup")]
 	public GoalController Goal1;
 	public GoalController Goal2;
-
+    public float SpawnDelay = 0.0f;
 	public Vector3[] spawnPoints;
 
 	[HideInInspector]
@@ -27,10 +27,7 @@ public class LevelController : MonoBehaviour {
 	GameObject player2Object;
 	
 	void Start () {
-		player1Object = Instantiate(player1Prefab, spawnPoints[0], Quaternion.identity) as GameObject;
-		player2Object = Instantiate(player2Prefab, spawnPoints[1], Quaternion.identity) as GameObject;
-
-		SetupCamera();
+        Invoke("SpawnPlayers", SpawnDelay);
 	}
 
 	void Update () {
@@ -43,11 +40,10 @@ public class LevelController : MonoBehaviour {
 		}
 	}
 
-	void SetupCamera() {
-		/*CameraFollow cam = Camera.main.GetComponent<CameraFollow>();
-		cam.p1 = player1Object;
-		cam.p2 = player2Object;*/
-	}
+    void SpawnPlayers() {
+        player1Object = Instantiate(player1Prefab, spawnPoints[0], Quaternion.identity) as GameObject;
+		player2Object = Instantiate(player2Prefab, spawnPoints[1], Quaternion.identity) as GameObject;
+    }
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.yellow;
