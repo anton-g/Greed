@@ -1431,6 +1431,7 @@ MonoBehaviour:
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
   Goal1: {fileID: 53142073}
   Goal2: {fileID: 1648856539}
+  SpawnDelay: 0
   spawnPoints:
   - {x: 7, y: -10, z: 0}
   - {x: 4, y: -10, z: 0}
