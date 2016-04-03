@@ -54,7 +54,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &166244
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -67,6 +67,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &178042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 414486}
+  - 61: {fileID: 6183376}
+  - 114: {fileID: 11497330}
+  - 114: {fileID: 11427222}
+  m_Layer: 9
+  m_Name: Player2
+  m_TagString: Player2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &197674
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,12 +93,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441962}
-  - 61: {fileID: 6183376}
-  - 114: {fileID: 11497330}
-  - 114: {fileID: 11427222}
   - 212: {fileID: 21208086}
   m_Layer: 9
-  m_Name: Player2
+  m_Name: Graphic
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,6 +113,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 419448}
   m_RootOrder: 0
+--- !u!4 &414486
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 3.00920892, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_Children:
+  - {fileID: 441792}
+  - {fileID: 441962}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!4 &419448
 Transform:
   m_ObjectHideFlags: 1
@@ -111,7 +140,7 @@ Transform:
   - {fileID: 408856}
   - {fileID: 453386}
   m_Father: {fileID: 441962}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &441792
 Transform:
   m_ObjectHideFlags: 1
@@ -122,7 +151,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 441962}
+  m_Father: {fileID: 414486}
   m_RootOrder: 0
 --- !u!4 &441962
 Transform:
@@ -131,13 +160,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.76999998, y: -5.80000019, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 441792}
   - {fileID: 419448}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 414486}
+  m_RootOrder: 1
 --- !u!4 &453386
 Transform:
   m_ObjectHideFlags: 1
@@ -238,7 +266,7 @@ BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197674}
+  m_GameObject: {fileID: 178042}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -275,7 +303,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197674}
+  m_GameObject: {fileID: 178042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79109a1e999e492abf03f7563d1a140, type: 3}
@@ -288,6 +316,7 @@ MonoBehaviour:
   crushParticle: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
   leftEye: {fileID: 408856}
   rightEye: {fileID: 453386}
+  graphic: {fileID: 21208086}
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2
@@ -298,7 +327,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197674}
+  m_GameObject: {fileID: 178042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6c954b3eae6846bcb57d883d454ebda, type: 3}
@@ -307,8 +336,8 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1280
-  horizontalRayCount: 10
-  verticalRayCount: 10
+  horizontalRayCount: 15
+  verticalRayCount: 15
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
@@ -354,11 +383,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: horizontalRayCount
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: verticalRayCount
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: crushParticle
@@ -447,5 +476,5 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 197674}
+  m_RootGameObject: {fileID: 178042}
   m_IsPrefabParent: 1

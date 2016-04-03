@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	public GameObject crushParticle;
     public Transform leftEye;
     public Transform rightEye;
+    public SpriteRenderer graphic;
     
 	[Header("Movement")]
 	public float moveSpeed = 6;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour {
 	GameObject positionHintObject;
     Vector3 leftEyeIdle;
     Vector3 rightEyeIdle;
+    Vector3 graphicOrigScale;
     float eyeBlinkTime;
 
     void Awake() {
@@ -47,6 +49,8 @@ public class Player : MonoBehaviour {
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
+        
+        graphicOrigScale = graphic.transform.localScale;
         
         eyeBlinkTime = Random.Range(5f, 20f);
         InvokeRepeating("BlinkEyes", eyeBlinkTime, eyeBlinkTime);
@@ -100,7 +104,7 @@ public class Player : MonoBehaviour {
 		}
         
         MoveEyes();
-        Debug.Log(velocity.x);
+        SquishAndStretch();
 	}
 
 	void CheckCrushed() {
@@ -151,6 +155,16 @@ public class Player : MonoBehaviour {
     
     void BlinkEyes() {
         StartCoroutine(Blink());
+    }
+    
+    void SquishAndStretch() {
+        //När y velociy är hög, scala om x mindre och y större
+        float maxScaleChange = 0.45f;
+        
+        float scaleChange = (velocity.y / 40) * maxScaleChange;
+        
+        Vector3 targetScale = new Vector3(graphicOrigScale.x - scaleChange, graphicOrigScale.y, graphicOrigScale.z);
+        graphic.transform.localScale = Vector3.Lerp(graphic.transform.localScale, targetScale, 0.05f);
     }
     
     IEnumerator Blink() {

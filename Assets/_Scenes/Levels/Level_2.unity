@@ -707,8 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371782225081845378831d5c6ddd7433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Prefab: {fileID: 196524, guid: 694b539214d3442079268355c9822099, type: 2}
-  player2Prefab: {fileID: 197674, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
+  player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
+  player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
   Goal1: {fileID: 1296301406}
   Goal2: {fileID: 618572847}
   spawnPoints:
