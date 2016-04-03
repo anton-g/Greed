@@ -11,7 +11,8 @@ public class GoalController : RayCastController {
 	public bool playerIsInGoal;
 
 	Renderer rend;
-	Color origColor;
+    Material origMaterial;
+    Color origColor;
     float origEmissionRate;
     Renderer particleRenderer;
 
@@ -19,7 +20,8 @@ public class GoalController : RayCastController {
 		base.Start ();
 
 		rend = GetComponent<Renderer>();
-		origColor = rend.material.color;
+        origMaterial = rend.material;
+        origColor = rend.material.color;
         
         origEmissionRate = particles.emissionRate; 
         particles.emissionRate = active ? origEmissionRate : 0.0f;
@@ -31,19 +33,14 @@ public class GoalController : RayCastController {
 		if (active) {
 			GameObject hitPlayer = GetPlayerInGoal();
 
-			if (hitPlayer != null) {
-				playerIsInGoal = true;
-
+            playerIsInGoal = hitPlayer != null;
+			if (playerIsInGoal) {
 				rend.material.color = hitPlayer.GetComponent<Player>().graphic.color;
                 particleRenderer.material.color = rend.material.color;
 			} else {
-				playerIsInGoal = false;
-
 				rend.material.color = origColor;
                 particleRenderer.material.color = origColor;
 			}
-		} else {
-			rend.material = inactiveMaterial;
 		}
 	}
 
@@ -69,5 +66,6 @@ public class GoalController : RayCastController {
 	public void Toggle() {
 		this.active = !this.active;
         particles.emissionRate = active ? origEmissionRate : 0.0f;
+        rend.material = active ? origMaterial : inactiveMaterial;
 	}
 }
