@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour {
@@ -12,7 +11,9 @@ public class Player : MonoBehaviour {
 
 	[Header("Appearance")]
 	public GameObject crushParticle;
-
+    public Transform leftEye;
+    public Transform rightEye;
+    
 	[Header("Movement")]
 	public float moveSpeed = 6;
 	float accelerationTimeAirborne = .2f;
@@ -33,19 +34,27 @@ public class Player : MonoBehaviour {
 	float velocityXSmoothing;
 	
 	Controller2D controller;
-
 	GameObject positionHintObject;
+    //Eye data
+    Vector3 leftEyeIdle;
+    Vector3 rightEyeIdle;
+    //End eye data
+
+    void Awake() {
+        leftEyeIdle = leftEye.localPosition;
+        rightEyeIdle = rightEye.localPosition;
+    }
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
-		
+        
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
 	}
-	
+    
 	void Update() {
 		CheckCrushed();
 
@@ -58,12 +67,6 @@ public class Player : MonoBehaviour {
 		}
 
 		float moveDir = 0;
-		/*if (Input.GetKey(left)) {
-			moveDir = -1;
-		}
-		if (Input.GetKey(right)) {
-			moveDir = 1;
-		}*/
 		moveDir = Input.GetAxisRaw(HorizontalButtonName);
 
 		Vector2 input = new Vector2 (moveDir, Input.GetAxisRaw ("Vertical"));
@@ -85,14 +88,21 @@ public class Player : MonoBehaviour {
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime, input);
 
+        //anim.SetFloat("yVelocity", velocity.y);
+        //anim.SetBool("Grounded", controller.collisions.below);
+        //anim.Play("playerBlink");
+        
         if (controller.collisions.pushableCollider) {
-            Vector3 pushVel = new Vector3(velocity.x, 0.0f, 0.0f);
+            Vector3 pushVel = new Vector3(velocity.x / 2.0f, 0.0f, 0.0f);
             controller.collisions.pushableCollider.Move(pushVel * Time.deltaTime, false);
         }
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
+        
+        MoveEyes();
+        Debug.Log(velocity.x);
 	}
 
 	void CheckCrushed() {
@@ -105,6 +115,41 @@ public class Player : MonoBehaviour {
 	void Die() {
 		gameObject.SetActive(false);
 	}
+    
+    void MoveEyes() {
+        float leftX = leftEyeIdle.x;
+        float leftY = leftEyeIdle.y;
+        float rightX = rightEyeIdle.x;
+        float rightY = rightEyeIdle.y;
+        
+        //Vertical
+        if (velocity.y > 0) {
+            //Up
+            leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
+            rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
+        } else if (velocity.y < 0 && !controller.collisions.below) {
+            //Down
+            leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
+            rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
+        }
+        
+        //Horizontal
+        if (velocity.x < -1) {
+            //Left
+            leftX = 0.12f * (velocity.x / moveSpeed) + leftEyeIdle.x;
+            rightX = 0.17f * (velocity.x / moveSpeed) + rightEyeIdle.x;
+        } else if (velocity.x > 1) {
+            //Right
+            leftX = 0.17f * (velocity.x / moveSpeed) + leftEyeIdle.x;
+            rightX = 0.12f * (velocity.x / moveSpeed) + rightEyeIdle.x;
+        }
+        
+        Vector3 leftPos = new Vector3(leftX, leftY, -0.1f);
+        leftEye.localPosition = Vector3.Lerp(leftEye.localPosition, leftPos, 0.1f);
+        
+        Vector3 rightPos = new Vector3(rightX, rightY, -0.1f);
+        rightEye.localPosition = Vector3.Lerp(rightEye.localPosition, rightPos, 0.1f); 
+    }
 
 	#region PositionHint management
 
