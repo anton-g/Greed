@@ -1168,7 +1168,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   horizontalRayCount: 4
-  verticalRayCount: 16
+  verticalRayCount: 25
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
