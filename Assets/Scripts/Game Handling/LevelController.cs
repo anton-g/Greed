@@ -13,7 +13,6 @@ public class LevelController : MonoBehaviour {
 	[Header("Setup")]
 	public GameObject player1Prefab;
 	public GameObject player2Prefab;
-    public CameraShake camShake;
     
 	[Header("Level setup")]
 	public GoalController Goal1;
@@ -35,10 +34,7 @@ public class LevelController : MonoBehaviour {
         if (player1Object == null || player2Object == null)
             return;
         
-		if (!player1Object.activeSelf || !player2Object.activeSelf) {
-            if (state != LevelState.Failed)
-                camShake.Shake();
-            
+		if (!player1Object.activeSelf || !player2Object.activeSelf) {            
 			state = LevelState.Failed;
 		}
 

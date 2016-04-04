@@ -681,7 +681,7 @@ Prefab:
     - target: {fileID: 2365004, guid: f9a9d0eaffbdb4a44b387487ee19280a, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ffa9d66142bf24738a936cd8ced371ea, type: 2}
+      objectReference: {fileID: 2100000, guid: 99c74bc2ee4d64e989eeac700e1f55f9, type: 2}
     - target: {fileID: 461438, guid: f9a9d0eaffbdb4a44b387487ee19280a, type: 2}
       propertyPath: m_LocalScale.x
       value: .5
@@ -3804,7 +3804,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
-  camShake: {fileID: 1194862831}
   Goal1: {fileID: 1288677662}
   Goal2: {fileID: 458044491}
   SpawnDelay: 0
@@ -4018,7 +4017,7 @@ Prefab:
       objectReference: {fileID: 2126162875}
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: triggerOnRelease
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11428814, guid: 8c6eaee34427b4c7fab7b823aba71c0a, type: 2}
       propertyPath: targetBeams.Array.data[2]
@@ -4116,7 +4115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412790, guid: 970eefbfc220146ca978bf55167c7e3c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 179174, guid: 970eefbfc220146ca978bf55167c7e3c, type: 2}
       propertyPath: m_Name
@@ -4823,6 +4822,10 @@ Prefab:
       propertyPath: targets.Array.data[6]
       value: 
       objectReference: {fileID: 1681531601}
+    - target: {fileID: 2398804, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99c74bc2ee4d64e989eeac700e1f55f9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
   m_IsPrefabParent: 0
@@ -5075,8 +5078,8 @@ Transform:
   m_LocalPosition: {x: 13, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1795285452}
   - {fileID: 1673301799}
+  - {fileID: 1795285452}
   m_Father: {fileID: 831437963}
   m_RootOrder: 2
 --- !u!114 &2048829910

@@ -7,14 +7,16 @@ public class Player : MonoBehaviour {
 	public string JumpButtonName;
 	public string HorizontalButtonName;
 	public string VerticalButtonName;
-
 	public GameObject positionIndicator;
 
 	[Header("Appearance")]
-	public GameObject crushParticle;
     public Transform leftEye;
     public Transform rightEye;
     public SpriteRenderer graphic;
+    
+    [Header("Effects")]
+    public GameObject crushParticle;
+    public CameraShake camShake;
     
 	[Header("Movement")]
 	public float moveSpeed = 6;
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour {
     }
 
 	void Start() {
+        camShake = Camera.main.GetComponent<CameraShake>();
 		controller = GetComponent<Controller2D> ();
         
         graphicOrigScale = graphic.transform.localScale;
@@ -100,6 +103,9 @@ public class Player : MonoBehaviour {
         }
 
 		if (controller.collisions.above || controller.collisions.below) {
+            if (velocity.y < -60.0f)
+                camShake.Shake(0.15f, 0.05f);
+            
 			velocity.y = 0;
 		}
         
@@ -116,6 +122,7 @@ public class Player : MonoBehaviour {
 
 	void Die() {
 		gameObject.SetActive(false);
+        camShake.Shake(0.4f, 0.3f);
 	}
     
     void MoveEyes() {

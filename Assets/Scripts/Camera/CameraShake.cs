@@ -2,15 +2,14 @@
 using System.Collections;
 
 public class CameraShake : MonoBehaviour {
-
 	public Transform camTransform;
     
     public float shakeDuration = 0.3f;
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
     
-    float currentShakeDuration;
-    bool shaking;
+    float currentShakeDuration = 0.0f;
+    bool shaking = false;
     
     Vector3 origPos;
     
@@ -18,28 +17,27 @@ public class CameraShake : MonoBehaviour {
         if (camTransform == null) {
             camTransform = gameObject.transform;
         }
-        
-        currentShakeDuration = shakeDuration;
     }
     
     void OnEnable() {
         origPos = camTransform.localPosition;
     }
     
-    void Update() {
+    void LateUpdate() {
         if (shaking && currentShakeDuration > 0) {
+            Debug.Log(currentShakeDuration);
             camTransform.localPosition = origPos + Random.insideUnitSphere * shakeAmount;
-            shakeDuration -= Time.deltaTime * decreaseFactor;
+            currentShakeDuration -= Time.deltaTime * decreaseFactor;
         } else {
             shaking = false;
-            currentShakeDuration = shakeDuration;
             camTransform.localPosition = origPos;
         }
     }
     
     public void Shake(float magnitude, float duration) {
         shaking = true;
-        
+        Debug.Log("Duration: " + duration);
         currentShakeDuration = Mathf.Max(currentShakeDuration, duration);
+        shakeAmount = magnitude;
     }
 }

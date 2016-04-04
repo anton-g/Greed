@@ -1906,6 +1906,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2398804, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99c74bc2ee4d64e989eeac700e1f55f9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
   m_IsPrefabParent: 0
@@ -3799,7 +3803,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
-  camShake: {fileID: 1194862830}
   Goal1: {fileID: 1288677662}
   Goal2: {fileID: 458044491}
   SpawnDelay: 0
@@ -4834,6 +4837,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2398804, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99c74bc2ee4d64e989eeac700e1f55f9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
   m_IsPrefabParent: 0
