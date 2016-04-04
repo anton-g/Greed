@@ -26,6 +26,8 @@ public class GoalController : RayCastController {
         origEmissionRate = particles.emissionRate; 
         particles.emissionRate = active ? origEmissionRate : 0.0f;
         particleRenderer = particles.GetComponent<Renderer>();
+        
+        rend.material = active ? origMaterial : inactiveMaterial;
 	}
 
 	void Update() {
