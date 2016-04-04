@@ -630,6 +630,7 @@ GameObject:
   - 124: {fileID: 1194862825}
   - 81: {fileID: 1194862824}
   - 114: {fileID: 1194862829}
+  - 114: {fileID: 1194862830}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -736,6 +737,21 @@ MonoBehaviour:
   m_GlowIntensity: .300000012
   m_BlurOffset: 0
   m_Samples: 2
+--- !u!114 &1194862830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1194862823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767c8f97d74214c9c8d8d9e52271f247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: .300000012
+  shakeAmount: .699999988
+  decreaseFactor: 1
 --- !u!1 &1204886121
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,8 +857,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
+  camShake: {fileID: 1194862830}
   Goal1: {fileID: 2021887433}
   Goal2: {fileID: 1619826152}
+  SpawnDelay: 0
   spawnPoints:
   - {x: 5, y: 0, z: 0}
   - {x: -5, y: 0, z: 0}
