@@ -70,7 +70,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: ffa9d66142bf24738a936cd8ced371ea, type: 2}
+  - {fileID: 2100000, guid: e1872483aeab54565bf77afda38a5550, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
-  pushedMaterial: {fileID: 2100000, guid: 4d2e23128e7094ce5b1953a00d2a1939, type: 2}
+  pushedMaterial: {fileID: 2100000, guid: ab51a6771109542e49d6b09c1399790c, type: 2}
   pushableFromDirection: 0
   triggerOnRelease: 0
   targets: []
@@ -152,7 +152,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1872483aeab54565bf77afda38a5550, type: 2}
+    - target: {fileID: 0}
+      propertyPath: pushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ab51a6771109542e49d6b09c1399790c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198694}
