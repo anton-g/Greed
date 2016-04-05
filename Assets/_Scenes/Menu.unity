@@ -97,7 +97,7 @@ GameObject:
   - 114: {fileID: 247697908}
   - 114: {fileID: 247697911}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: New game button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ GameObject:
   - 114: {fileID: 551039799}
   - 114: {fileID: 551039802}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,7 +481,7 @@ GameObject:
   - 114: {fileID: 662835015}
   - 114: {fileID: 662835017}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: Quit button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,7 +739,7 @@ GameObject:
   - 222: {fileID: 1044384059}
   - 114: {fileID: 1044384058}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,7 +1005,7 @@ GameObject:
   - 114: {fileID: 1647672299}
   - 114: {fileID: 1647672301}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Continue button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0ae0e6d74074474b2269d3a8972c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCount: 7
+  levelCount: 8
   fader: {fileID: 2022159258}
   startLevel: 1
 --- !u!4 &2022159260

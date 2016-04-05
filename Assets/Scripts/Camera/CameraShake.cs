@@ -13,7 +13,7 @@ public class CameraShake : MonoBehaviour {
     
     Vector3 origPos;
     
-    void Awake() {
+    void Awake() {        
         if (camTransform == null) {
             camTransform = gameObject.transform;
         }
@@ -25,7 +25,6 @@ public class CameraShake : MonoBehaviour {
     
     void LateUpdate() {
         if (shaking && currentShakeDuration > 0) {
-            Debug.Log(currentShakeDuration);
             camTransform.localPosition = origPos + Random.insideUnitSphere * shakeAmount;
             currentShakeDuration -= Time.deltaTime * decreaseFactor;
         } else {
@@ -36,7 +35,6 @@ public class CameraShake : MonoBehaviour {
     
     public void Shake(float magnitude, float duration) {
         shaking = true;
-        Debug.Log("Duration: " + duration);
         currentShakeDuration = Mathf.Max(currentShakeDuration, duration);
         shakeAmount = magnitude;
     }
