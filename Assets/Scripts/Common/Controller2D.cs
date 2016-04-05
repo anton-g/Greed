@@ -72,11 +72,6 @@ public class Controller2D : RayCastController {
 					collisions.death = true;
 					continue;
 				}
-                
-                if (hit.collider.tag == "Pushable") {
-                    //TODO fix performance
-                    collisions.pushableCollider = hit.collider.GetComponent<Controller2D>();
-                }
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				
@@ -242,7 +237,6 @@ public class Controller2D : RayCastController {
 		public bool crushed;
 		public bool death;
 		public bool playerCollisionBelow;
-        public Controller2D pushableCollider;
 		
 		public void Reset() {
 			above = below = false;
@@ -255,8 +249,6 @@ public class Controller2D : RayCastController {
 			
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
-            
-            pushableCollider = null;
 		}
 	}
 }

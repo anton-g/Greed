@@ -97,11 +97,6 @@ public class Player : MonoBehaviour {
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime, input);
 
-        if (controller.collisions.pushableCollider) {
-            Vector3 pushVel = new Vector3(velocity.x / 2.0f, 0.0f, 0.0f);
-            controller.collisions.pushableCollider.Move(pushVel * Time.deltaTime, false);
-        }
-
 		if (controller.collisions.above || controller.collisions.below) {
             if (velocity.y < -60.0f)
                 camShake.Shake(0.2f, 0.1f);
