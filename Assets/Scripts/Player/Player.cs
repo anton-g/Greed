@@ -104,7 +104,7 @@ public class Player : MonoBehaviour {
 
 		if (controller.collisions.above || controller.collisions.below) {
             if (velocity.y < -60.0f)
-                camShake.Shake(0.15f, 0.05f);
+                camShake.Shake(0.2f, 0.1f);
             
 			velocity.y = 0;
 		}
