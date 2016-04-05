@@ -53,6 +53,10 @@ public class GameController : MonoBehaviour {
 				StartCoroutine("RestartCurrentLevel");
 			}
         }
+        
+        if (Input.GetKeyDown(KeyCode.P)) {
+            Time.timeScale = Time.timeScale == 0.0f ? 1.0f : 0.0f;
+        }
     }
 
 	void CheckForLevelCompletion() {
