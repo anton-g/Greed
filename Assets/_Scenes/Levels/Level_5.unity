@@ -241,6 +241,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 415346, guid: 970eefbfc220146ca978bf55167c7e3c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .985000014
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970eefbfc220146ca978bf55167c7e3c, type: 2}
   m_IsPrefabParent: 0
@@ -351,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 142774997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00999999, y: 1.00999999, z: 1}
+  m_LocalScale: {x: .99000001, y: .99000001, z: 1}
   m_Children: []
   m_Father: {fileID: 679821518}
   m_RootOrder: 0
@@ -618,8 +622,8 @@ MonoBehaviour:
   passengerMask:
     serializedVersion: 2
     m_Bits: 768
-  doorMoveDirection: 2
-  length: 13.1000004
+  doorMoveDirection: 0
+  length: 4
   easeAmount: .300000012
   triggers: 
   requiredTriggers: 1
@@ -698,6 +702,10 @@ Prefab:
       propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 679821522}
+    - target: {fileID: 115110, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1592c90d049e54a3c9d998a1df0dc22f, type: 2}
   m_IsPrefabParent: 0

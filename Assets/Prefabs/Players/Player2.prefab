@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 104378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .899999976, y: .899999976, z: 1}
   m_Children: []
   m_Father: {fileID: 414486}
   m_RootOrder: 0
@@ -313,10 +313,11 @@ MonoBehaviour:
   HorizontalButtonName: Player2Horizontal
   VerticalButtonName: Player2Vertical
   positionIndicator: {fileID: 147656, guid: e850fdf565aff4d8489f20e3ac81e313, type: 2}
-  crushParticle: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
   leftEye: {fileID: 408856}
   rightEye: {fileID: 453386}
   graphic: {fileID: 21208086}
+  crushParticle: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
+  camShake: {fileID: 0}
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2
@@ -423,11 +424,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Sprite
