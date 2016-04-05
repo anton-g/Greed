@@ -1740,8 +1740,8 @@ MonoBehaviour:
   Goal2: {fileID: 458044491}
   SpawnDelay: 0
   spawnPoints:
+  - {x: 29, y: 10, z: 0}
   - {x: -2, y: -5, z: 0}
-  - {x: 25, y: 10, z: 0}
   state: 0
 --- !u!4 &1578757488
 Transform:
