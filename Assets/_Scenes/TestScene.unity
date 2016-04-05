@@ -435,7 +435,7 @@ MonoBehaviour:
     m_Bits: 0
   doorMoveDirection: 0
   length: 10
-  easeAmount: 0
+  easeAmount: 1.70000005
   triggers: 
   requiredTriggers: 1
 --- !u!1 &1069435160
@@ -777,8 +777,9 @@ GameObject:
   - 23: {fileID: 1841694178}
   - 61: {fileID: 1841694182}
   - 114: {fileID: 1841694179}
+  - 114: {fileID: 1841694183}
   m_Layer: 10
-  m_Name: Quad
+  m_Name: Key
   m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +795,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5904ed56706984718b4fbd21f56b2989, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -836,8 +837,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1841694177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0799999982, y: -1.14999998, z: .03125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .400000006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -854,3 +855,15 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &1841694183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841694177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2acc07aaf6847b5848fe53f01fff3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobDistance: .200000003
