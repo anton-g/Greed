@@ -72,6 +72,11 @@ public class Controller2D : RayCastController {
 					collisions.death = true;
 					continue;
 				}
+                
+                if (hit.collider.tag == "Key") {
+                    collisions.collidingKey = hit.collider.gameObject;
+                    continue;
+                }
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				
@@ -138,6 +143,11 @@ public class Controller2D : RayCastController {
 					collisions.death = true;
 					continue;
 				}
+                
+                if (hit.collider.tag == "Key") {
+                    collisions.collidingKey = hit.collider.gameObject;
+                    continue;
+                }
 
 				velocity.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
@@ -237,6 +247,7 @@ public class Controller2D : RayCastController {
 		public bool crushed;
 		public bool death;
 		public bool playerCollisionBelow;
+        public GameObject collidingKey;
 		
 		public void Reset() {
 			above = below = false;
@@ -249,6 +260,8 @@ public class Controller2D : RayCastController {
 			
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
+            
+            collidingKey = null;
 		}
 	}
 }

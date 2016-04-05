@@ -74,6 +74,10 @@ public class Player : MonoBehaviour {
 		if (controller.collisions.playerCollisionBelow) {
 			velocity.y = playerBounceForce;
 		}
+        
+        if (controller.collisions.collidingKey != null) {
+            controller.collisions.collidingKey.GetComponent<KeyController>().Collect();
+        }
 
 		float moveDir = 0;
 		moveDir = Input.GetAxisRaw(HorizontalButtonName);
