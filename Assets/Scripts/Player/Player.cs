@@ -16,7 +16,6 @@ public class Player : MonoBehaviour {
     
     [Header("Effects")]
     public GameObject crushParticle;
-    public CameraShake camShake;
     
 	[Header("Movement")]
 	public float moveSpeed = 6;
@@ -39,6 +38,7 @@ public class Player : MonoBehaviour {
 	
 	Controller2D controller;
 	GameObject positionHintObject;
+    CameraShake camShake;
     Vector3 leftEyeIdle;
     Vector3 rightEyeIdle;
     Vector3 graphicOrigScale;
@@ -156,7 +156,8 @@ public class Player : MonoBehaviour {
     }
     
     void BlinkEyes() {
-        StartCoroutine(Blink());
+        if (gameObject.activeSelf)
+            StartCoroutine(Blink());
     }
     
     void SquishAndStretch() {
