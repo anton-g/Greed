@@ -317,7 +317,6 @@ MonoBehaviour:
   rightEye: {fileID: 436648}
   graphic: {fileID: 21262188}
   crushParticle: {fileID: 117726, guid: 122703cba0f3341df9e8883f50c1e233, type: 2}
-  camShake: {fileID: 0}
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2
@@ -337,8 +336,8 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1536
-  horizontalRayCount: 15
-  verticalRayCount: 15
+  horizontalRayCount: 20
+  verticalRayCount: 20
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   col: {fileID: 0}
@@ -388,11 +387,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: horizontalRayCount
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: verticalRayCount
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: crushParticle
