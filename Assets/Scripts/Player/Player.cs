@@ -26,6 +26,7 @@ public class Player : MonoBehaviour {
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
+    public float ghostJumpTime = 0.05f;
     [Range(0.0f, 2.0f)]
     public float gravityModifier = 1.0f;
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour {
 	float minJumpVelocity;
 	Vector3 velocity;
 	float velocityXSmoothing;
+    float currentGhostJumpTime = 0.0f;
 	
 	Controller2D controller;
 	GameObject positionHintObject;
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour {
     }
 
 	void Start() {
+        Time.timeScale = 0.3f;        
         camShake = Camera.main.GetComponent<CameraShake>();
 		controller = GetComponent<Controller2D> ();
         
@@ -98,10 +101,13 @@ public class Player : MonoBehaviour {
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
+        currentGhostJumpTime += Time.deltaTime; //Update ghost jump time
 		if (Input.GetButtonDown (JumpButtonName)) {
 			if (controller.collisions.below) {
-				velocity.y = maxJumpVelocity;
-			}
+				Jump();
+			} else if (CanGhostJump()) {
+                Jump();
+            }
 		}
 		if (Input.GetButtonUp(JumpButtonName)) {
 			if (velocity.y > minJumpVelocity) {
@@ -112,16 +118,27 @@ public class Player : MonoBehaviour {
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime, input);
 
-		if (controller.collisions.above || controller.collisions.below) {
-            if (velocity.y < -60.0f)
-                camShake.Shake(0.2f, 0.1f);
-            
+		if (controller.collisions.above) {
 			velocity.y = 0;
 		}
-        
+        if (controller.collisions.below) {
+            if (velocity.y < -60.0f) {
+                camShake.Shake(0.2f, 0.1f);
+            }
+
+            currentGhostJumpTime = 0;            
+            velocity.y = 0;
+        }
+	}
+    
+    void FixedUpdate() {
         MoveEyes();
         SquishAndStretch();
-	}
+    }
+    
+    bool CanGhostJump() {
+        return currentGhostJumpTime < ghostJumpTime && velocity.y < -1.0f;
+    }
 
 	void CheckCrushed() {
 		if (controller.collisions.crushed) {
@@ -135,10 +152,17 @@ public class Player : MonoBehaviour {
         camShake.Shake(0.4f, 0.3f);
 	}
     
+    void Jump() {
+        velocity.y = maxJumpVelocity;
+        currentGhostJumpTime += ghostJumpTime; //Make sure to not allow double jumps
+    }
+    
     void SetGravityModifier(float newGravityModifer) {
         gravityModifier = newGravityModifer;
         CalculateJumpVariables();
     }
+    
+    #region Cosmetics
     
     void MoveEyes() {
         float leftX = leftEyeIdle.x;
@@ -199,7 +223,8 @@ public class Player : MonoBehaviour {
         rightEye.gameObject.SetActive(true);
         leftEye.gameObject.SetActive(true);
     }
-
+    #endregion
+    
 	#region PositionHint management
 
 	void OnBecameInvisible() {
