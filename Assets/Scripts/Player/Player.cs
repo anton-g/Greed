@@ -53,8 +53,7 @@ public class Player : MonoBehaviour {
         rightEyeIdle = rightEye.localPosition;
     }
 
-	void Start() {
-        Time.timeScale = 0.3f;        
+	void Start() {      
         camShake = Camera.main.GetComponent<CameraShake>();
 		controller = GetComponent<Controller2D> ();
         
