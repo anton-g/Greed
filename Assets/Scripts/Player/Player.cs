@@ -26,6 +26,8 @@ public class Player : MonoBehaviour {
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
+    [Range(0.0f, 2.0f)]
+    public float gravityModifier = 1.0f;
 
 	[Header("Interaction settings")]
 	public float playerBounceForce = 20.0f;
@@ -58,11 +60,20 @@ public class Player : MonoBehaviour {
         eyeBlinkTime = Random.Range(5f, 20f);
         InvokeRepeating("BlinkEyes", eyeBlinkTime, eyeBlinkTime);
         
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+        CalculateJumpVariables();
+	}
+    
+    void CalculateJumpVariables() {
+        gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+        
+        gravity *= gravityModifier;
+        timeToJumpApex /= gravityModifier;
+        
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+        
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
-	}
+    }
     
 	void Update() {
 		CheckCrushed();
@@ -123,6 +134,11 @@ public class Player : MonoBehaviour {
 		gameObject.SetActive(false);
         camShake.Shake(0.4f, 0.3f);
 	}
+    
+    void SetGravityModifier(float newGravityModifer) {
+        gravityModifier = newGravityModifer;
+        CalculateJumpVariables();
+    }
     
     void MoveEyes() {
         float leftX = leftEyeIdle.x;

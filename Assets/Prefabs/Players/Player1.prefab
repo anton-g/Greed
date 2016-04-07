@@ -321,6 +321,7 @@ MonoBehaviour:
   maxJumpHeight: 7
   minJumpHeight: 2
   timeToJumpApex: .349999994
+  gravityModifier: 1
   playerBounceForce: 35
 --- !u!114 &11430694
 MonoBehaviour:
@@ -457,6 +458,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: gravityModifier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
