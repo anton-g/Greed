@@ -6,20 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_1.unity
+    path: Assets/_Scenes/Menu.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_2.unity
+    path: Assets/_Scenes/Levels/First.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_3.unity
+    path: Assets/_Scenes/Levels/First button.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_4.unity
+    path: Assets/_Scenes/Levels/First boost.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_5.unity
+    path: Assets/_Scenes/Levels/Hold button together.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_6.unity
+    path: Assets/_Scenes/Levels/Run jump timing.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_7.unity
+    path: Assets/_Scenes/Levels/Two pillar boost jump.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_8.unity
+    path: Assets/_Scenes/Levels/Keycode.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_9.unity
+    path: Assets/_Scenes/Levels/Falling ground timing.unity
+  - enabled: 1
+    path: Assets/_Scenes/Levels/House.unity

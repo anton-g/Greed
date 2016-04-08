@@ -9,19 +9,24 @@ enum GameState {
 [RequireComponent(typeof(Fader))]
 public class GameController : MonoBehaviour {
 	[Header("Game settings")]
-	public int levelCount = 3;
-
+    public int nonLevelScenes = 1;
+    
 	[Header("GUI")]
 	public Fader fader;
 
 	[Header("Debugging")]
 	public int startLevel = 1;
 
+    int levelCount;
 	int currentLevel;
 	LevelController levelController;
 	bool fading = false;
 	GameState state;
 	
+    void Awake() {
+        levelCount = Application.levelCount - nonLevelScenes;
+    }
+    
 	void Start () {
 		DontDestroyOnLoad(gameObject);
 
@@ -43,7 +48,7 @@ public class GameController : MonoBehaviour {
 	public void StartGame() {
 		state = GameState.GamePlaying;
 		currentLevel = startLevel;
-		Application.LoadLevel("Level_" + currentLevel);
+		Application.LoadLevel(currentLevel);
 	}
 
     void CheckInput() {
@@ -93,7 +98,7 @@ public class GameController : MonoBehaviour {
 			float fadeTime = fader.BeginFade(1, false);
 			yield return new WaitForSeconds(fadeTime);
 			currentLevel++;
-			Application.LoadLevel("Level_" + currentLevel);
+			Application.LoadLevel(currentLevel);
 			fading = false;
 		}
 	}
