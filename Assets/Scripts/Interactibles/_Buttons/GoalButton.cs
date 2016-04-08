@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class GoalButton : ButtonController<GoalController> {
+﻿public class GoalButton : ButtonController<GoalController> {
 	public override void ButtonPushed() {
 		foreach (var gc in targets) {
 			gc.Toggle();

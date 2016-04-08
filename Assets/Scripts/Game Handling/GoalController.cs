@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class GoalController : RayCastController {
 	[Header("Appearance")]

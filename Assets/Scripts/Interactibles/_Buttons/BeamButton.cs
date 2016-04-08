@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class BeamButton : ButtonController<BeamController> {
+﻿public class BeamButton : ButtonController<BeamController> {
 	public override void ButtonPushed() {
 		foreach (var bc in targets) {
 			bc.Toggle();

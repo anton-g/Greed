@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CameraFollowOld : MonoBehaviour {
 	public Controller2D target;

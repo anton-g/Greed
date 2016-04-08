@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-
 
 public class Controller2D : RayCastController {
 	float maxClimbAngle = 80;

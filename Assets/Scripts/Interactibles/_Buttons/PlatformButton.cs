@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class PlatformButton : ButtonController<PlatformController> {
+﻿public class PlatformButton : ButtonController<PlatformController> {
 	public override void ButtonPushed() {
 		foreach (var pc in targets) {
 			pc.activated = !pc.activated;
