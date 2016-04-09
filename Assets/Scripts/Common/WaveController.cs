@@ -16,7 +16,8 @@ public class WaveController : MonoBehaviour {
 	public float noiseWalk = 1f;
 
 	Vector3[] baseHeight;
-
+    Vector3[] vertices;
+    
 	Mesh mesh;
 	
 	void Start () {
@@ -45,12 +46,14 @@ public class WaveController : MonoBehaviour {
 		mesh = m;
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		if (baseHeight == null) {
 			baseHeight = mesh.vertices;
 		}
-
-		Vector3[] vertices = new Vector3[baseHeight.Length];
+        
+        if (vertices == null) {
+            vertices = new Vector3[baseHeight.Length];
+        }
 
 		for (int i = 0; i < baseHeight.Length; i++) {
 			if (i < baseHeight.Length / 2 || !onlyTopEdge) {
