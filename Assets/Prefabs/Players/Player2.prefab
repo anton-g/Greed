@@ -62,6 +62,7 @@ GameObject:
   - 61: {fileID: 6183376}
   - 114: {fileID: 11497330}
   - 114: {fileID: 11427222}
+  - 114: {fileID: 11471098}
   m_Layer: 9
   m_Name: Player2
   m_TagString: Player2
@@ -120,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.3525848, y: 7.70076561, z: 0}
+  m_LocalPosition: {x: 2.1087153, y: 1.87050605, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 441962}
@@ -313,16 +314,29 @@ MonoBehaviour:
   HorizontalButtonName: Player2Horizontal
   VerticalButtonName: Player2Vertical
   positionIndicator: {fileID: 147656, guid: e850fdf565aff4d8489f20e3ac81e313, type: 2}
-  leftEye: {fileID: 408856}
-  rightEye: {fileID: 453386}
-  graphic: {fileID: 21208086}
   crushParticle: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2
   timeToJumpApex: .349999994
+  ghostJumpTime: .0500000007
   gravityModifier: 1
   playerBounceForce: 35
+  cosmetics: {fileID: 0}
+--- !u!114 &11471098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebcf5c74f6b0439bb96a97cc1e53ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftEye: {fileID: 408856}
+  rightEye: {fileID: 453386}
+  graphic: {fileID: 21208086}
 --- !u!114 &11497330
 MonoBehaviour:
   m_ObjectHideFlags: 1

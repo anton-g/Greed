@@ -1,0 +1,91 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PlayerCosmetics : MonoBehaviour {
+
+    [Header("Appearance")]
+    public Transform leftEye;
+    public Transform rightEye;
+    public SpriteRenderer graphic;
+	
+    Vector3 leftEyeIdle;
+    Vector3 rightEyeIdle;
+    Vector3 graphicOrigScale;
+    float eyeBlinkTime;
+    
+    void Awake() {
+        leftEyeIdle = leftEye.localPosition;
+        rightEyeIdle = rightEye.localPosition;
+    }
+    
+    void Start() {
+        graphicOrigScale = graphic.transform.localScale;
+        
+        eyeBlinkTime = Random.Range(5f, 20f);
+        InvokeRepeating("BlinkEyes", eyeBlinkTime, eyeBlinkTime);
+    }
+    
+    public void Run(Vector3 velocity, float moveSpeed, bool collisionBelow) {
+        MoveEyes(velocity, moveSpeed, collisionBelow);
+    }
+    
+    void MoveEyes(Vector3 velocity, float moveSpeed, bool collisionBelow) {
+        float leftX = leftEyeIdle.x;
+        float leftY = leftEyeIdle.y;
+        float rightX = rightEyeIdle.x;
+        float rightY = rightEyeIdle.y;
+        
+        //Vertical
+        if (velocity.y > 0) {
+            //Up
+            leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
+            rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
+        } else if (velocity.y < 0 && !collisionBelow) {
+            //Down
+            leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
+            rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
+        }
+        
+        //Horizontal
+        if (velocity.x < -1) {
+            //Left
+            leftX = 0.12f * (velocity.x / moveSpeed) + leftEyeIdle.x;
+            rightX = 0.17f * (velocity.x / moveSpeed) + rightEyeIdle.x;
+        } else if (velocity.x > 1) {
+            //Right
+            leftX = 0.17f * (velocity.x / moveSpeed) + leftEyeIdle.x;
+            rightX = 0.12f * (velocity.x / moveSpeed) + rightEyeIdle.x;
+        }
+        
+        Vector3 leftPos = new Vector3(leftX, leftY, -0.1f);
+        leftEye.localPosition = Vector3.Lerp(leftEye.localPosition, leftPos, 0.1f);
+        
+        Vector3 rightPos = new Vector3(rightX, rightY, -0.1f);
+        rightEye.localPosition = Vector3.Lerp(rightEye.localPosition, rightPos, 0.1f); 
+    }
+    
+    void BlinkEyes() {
+        if (gameObject.activeSelf)
+            StartCoroutine(Blink());
+    }
+    
+    void SquishAndStretch(Vector3 velocity) {
+        //När y velociy är hög, scala om x mindre och y större
+        float maxScaleChange = 0.45f;
+        
+        float scaleChange = (velocity.y / 40) * maxScaleChange;
+        
+        Vector3 targetScale = new Vector3(graphicOrigScale.x - scaleChange, graphicOrigScale.y, graphicOrigScale.z);
+        graphic.transform.localScale = Vector3.Lerp(graphic.transform.localScale, targetScale, 0.05f);
+    }
+    
+    IEnumerator Blink() {
+        rightEye.gameObject.SetActive(false);
+        leftEye.gameObject.SetActive(false);
+        
+        yield return new WaitForSeconds(0.1f);
+        
+        rightEye.gameObject.SetActive(true);
+        leftEye.gameObject.SetActive(true);
+    }
+}
