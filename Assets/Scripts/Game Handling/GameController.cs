@@ -28,7 +28,6 @@ public class GameController : MonoBehaviour {
     }
     
 	void Start () {
-		DontDestroyOnLoad(gameObject);
 
 		state = GameState.GameMenu;
 	}
