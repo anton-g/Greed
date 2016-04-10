@@ -2,8 +2,9 @@
 using System.Collections;
 
 enum GameState {
-	GameMenu,
-	GamePlaying
+	Menu,
+    Paused,
+	Playing
 }
 
 [RequireComponent(typeof(Fader))]
@@ -13,6 +14,7 @@ public class GameController : MonoBehaviour {
     
 	[Header("GUI")]
 	public Fader fader;
+    public Canvas pauseMenu;
 
 	[Header("Debugging")]
 	public int startLevel = 1;
@@ -28,24 +30,55 @@ public class GameController : MonoBehaviour {
     }
     
 	void Start () {
-
-		state = GameState.GameMenu;
+		state = GameState.Menu;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		switch (state) {
-		case GameState.GameMenu:
+		case GameState.Menu:
+            break;
+        case GameState.Paused:
+            CheckForPause();
 			break;
-		case GameState.GamePlaying:
+		case GameState.Playing:
             CheckInput();
+            CheckForPause();
 			CheckForLevelCompletion();
 			break;
 		}
 	}
+    
+    void TransitionToState(GameState toState) {
+        //From
+        switch (state)
+        {
+            case GameState.Menu:
+                break;
+            case GameState.Paused:
+                UnpauseGame();
+                break;
+            case GameState.Playing:
+                break;
+        }
+        
+        //To
+        switch (toState)
+        {
+            case GameState.Menu:
+                break;
+            case GameState.Paused:
+                PauseGame();
+                break;
+            case GameState.Playing:
+                break;
+        }
+        
+        state = toState;
+    }
 
 	public void StartGame() {
-		state = GameState.GamePlaying;
+		state = GameState.Playing;
 		currentLevel = startLevel;
 		Application.LoadLevel(currentLevel);
 	}
@@ -57,10 +90,26 @@ public class GameController : MonoBehaviour {
 				StartCoroutine("RestartCurrentLevel");
 			}
         }
-        
+    }
+    
+    void CheckForPause() {
         if (Input.GetKeyDown(KeyCode.P)) {
-            Time.timeScale = Time.timeScale == 0.0f ? 1.0f : 0.0f;
+            TogglePause();
         }
+    }
+    
+    void UnpauseGame() {
+        Time.timeScale = 1.0f;
+        pauseMenu.enabled = false;
+    }
+    
+    void PauseGame() {
+        Time.timeScale = 0.0f;
+        pauseMenu.enabled = true;
+    }
+    
+    void TogglePause() {
+        TransitionToState(state == GameState.Paused ? GameState.Playing : GameState.Paused);
     }
 
 	void CheckForLevelCompletion() {
