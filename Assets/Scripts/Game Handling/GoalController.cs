@@ -36,7 +36,7 @@ public class GoalController : RayCastController {
 
             playerIsInGoal = hitPlayer != null;
 			if (playerIsInGoal) {
-				rend.material.color = hitPlayer.GetComponent<Player>().graphic.color;
+				rend.material.color = hitPlayer.GetComponent<Player>().cosmetics.graphic.color;
                 particleRenderer.material.color = rend.material.color;
 			} else {
 				rend.material.color = origColor;
