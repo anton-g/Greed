@@ -118,45 +118,22 @@ public class Controller2D : RayCastController {
 			
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 			
-			if (hit) {                
-				if (hit.collider.tag == "Through") {
-					if (directionY == 1 || hit.distance == 0) {
-						continue;
-					}
-					if (collisions.fallingThrough) {
-						continue;
-					}
-					if (playerInput.y == -1) {
-						collisions.fallingThrough = true; 
-						Invoke("ResetFallingThroughPlatform", .5f);
-						continue;	
-					}
-				}
-
-				if ((hit.collider.tag == "Player1" || hit.collider.tag == "Player2") && directionY == -1) {
-					collisions.playerCollisionBelow = true;
-				}
-
-				if (hit.collider.tag == "Death") {
-					collisions.death = true;
-					continue;
-				}
+            if (hit) {
+                HandleVerticalHit(hit, directionY, ref velocity);
+            }
+            
+            //If going up, also raycast down but only for player
+            if (directionY == 1) {
+                Vector2 rayOriginDown = raycastOrigins.bottomLeft + (Vector2.up * velocity.y);
+                rayOriginDown += Vector2.right * (verticalRaySpacing * i + velocity.x);
+                RaycastHit2D hitDown = Physics2D.Raycast(rayOriginDown, Vector2.up * -1, rayLength, collisionMask);
                 
-                if (hit.collider.tag == "Key") {
-                    collisions.collidingKey = hit.collider.gameObject;
-                    continue;
+                Debug.DrawRay(rayOriginDown, Vector2.up * -1 * rayLength,Color.red);
+                
+                if (hitDown) {
+                    HandleVerticalHit(hitDown, -1, ref velocity, true);
                 }
-
-				velocity.y = (hit.distance - skinWidth) * directionY;
-				rayLength = hit.distance;
-				
-				if (collisions.climbingSlope) {
-					velocity.x = velocity.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
-				}
-
-				collisions.below = (directionY == -1);
-				collisions.above = (directionY != -1);
-			}
+            }
 		}
 		
 		if (collisions.climbingSlope) {
@@ -174,6 +151,52 @@ public class Controller2D : RayCastController {
 			}
 		}
 	}
+    
+    void HandleVerticalHit(RaycastHit2D hit, float directionY, ref Vector3 velocity, bool onlyPlayer = false) {
+        if (onlyPlayer && (hit.collider.tag == "Player1" || hit.collider.tag == "Player2")) {
+            collisions.playerCollisionBelow = true;
+            return;
+        }
+        
+        bool shouldCollide = true ^ onlyPlayer;
+        
+        if (hit.collider.tag == "Through") {
+            if (directionY == 1 || collisions.fallingThrough || hit.distance == 0) {
+                shouldCollide = false;
+            }
+            if (playerInput.y == -1) {
+                collisions.fallingThrough = true; 
+                Invoke("ResetFallingThroughPlatform", .5f);
+                shouldCollide = false;
+            }
+        }
+        
+        if (hit.collider.tag == "Death") {
+            collisions.death = true;
+            shouldCollide = false;
+        }
+        
+        if (hit.collider.tag == "Key") {
+            collisions.collidingKey = hit.collider.gameObject;
+            shouldCollide = false;
+        }
+        
+        if (shouldCollide) {
+            if ((hit.collider.tag == "Player1" || hit.collider.tag == "Player2") && directionY == -1) {
+                collisions.playerCollisionBelow = true;
+            }
+
+            velocity.y = (hit.distance - skinWidth) * directionY;
+            //rayLength = hit.distance;
+            
+            if (collisions.climbingSlope) {
+                velocity.x = velocity.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
+            }
+
+            collisions.below = (directionY == -1);
+            collisions.above = (directionY != -1);
+        }
+    }
 
 	void CrushingCollision(Vector3 velocity) {
 		float rayLength = skinWidth;
