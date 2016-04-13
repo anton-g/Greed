@@ -3,6 +3,7 @@
 public enum LevelState {
 	Playing,
 	Completed,
+    Secret,
 	Failed
 }
 
@@ -18,6 +19,8 @@ public class LevelController : MonoBehaviour {
 	public GoalController Goal2;
     public float SpawnDelay = 0.0f;
 	public Vector3[] spawnPoints;
+    [Header("Optional level setup")]
+    public SecretTrigger secretTrigger;
 
 	[HideInInspector]
 	public LevelState state = LevelState.Playing;
@@ -40,6 +43,10 @@ public class LevelController : MonoBehaviour {
 		if (Goal1.playerIsInGoal && Goal2.playerIsInGoal) {
 			state = LevelState.Completed;
 		}
+        
+        if (secretTrigger != null && secretTrigger.collected) {
+            state = LevelState.Secret;
+        }
 	}
 
     void SpawnPlayers() {

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	[Header("GUI")]
 	public Fader fader;
     public Canvas pauseMenu;
-
+    
 	[Header("Debugging")]
 	public int startLevel = 1;
 
@@ -116,6 +116,9 @@ public class GameController : MonoBehaviour {
 		if (levelController) {
 			switch (levelController.state) {
 			case LevelState.Playing:
+                break;
+            case LevelState.Secret:
+                Application.LoadLevel(0);
 				break;
 			case LevelState.Completed:
 				if (!fading) {
