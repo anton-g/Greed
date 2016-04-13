@@ -87,11 +87,9 @@ public class Player : MonoBehaviour {
 
         currentGhostJumpTime += Time.deltaTime; //Update ghost jump time
 		if (Input.GetButtonDown (JumpButtonName)) {
-			if (controller.collisions.below) {
+			if (controller.collisions.below || CanGhostJump()) {
 				Jump();
-			} else if (CanGhostJump()) {
-                Jump();
-            }
+			}
 		}
 		if (Input.GetButtonUp(JumpButtonName)) {
 			if (velocity.y > minJumpVelocity) {
@@ -144,7 +142,6 @@ public class Player : MonoBehaviour {
         gravityModifier = newGravityModifer;
         CalculateJumpVariables();
     }
-
     
 	#region PositionHint management
 

@@ -55,7 +55,7 @@ public class Controller2D : RayCastController {
 		}
 		
 		for (int i = 0; i < horizontalRayCount; i ++) {
-			Vector2 rayOrigin = (directionX == -1)?raycastOrigins.bottomLeft:raycastOrigins.bottomRight;
+			Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
 			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
 			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 			
@@ -158,7 +158,7 @@ public class Controller2D : RayCastController {
             return;
         }
         
-        bool shouldCollide = true ^ onlyPlayer;
+        bool shouldCollide = !onlyPlayer;
         
         if (hit.collider.tag == "Through") {
             if (directionY == 1 || collisions.fallingThrough || hit.distance == 0) {

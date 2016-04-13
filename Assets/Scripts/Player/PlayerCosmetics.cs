@@ -38,16 +38,20 @@ public class PlayerCosmetics : MonoBehaviour {
         float rightY = rightEyeIdle.y;
         float scale = eyesOrigScale.y;
         
+        float eyeDistanceModifier = 0.0f;
+        
         //Vertical
         if (velocity.y > 0) {
             //Up
             leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
             rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
             scale *= velocity.y / 40;
+            eyeDistanceModifier = 0.04f * (velocity.y / 40);
         } else if (velocity.y < 0 && !collisionBelow) {
             //Down
             leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
             rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
+            eyeDistanceModifier = 0.04f * (velocity.y / 40);
         }
         
         //Horizontal
@@ -60,6 +64,9 @@ public class PlayerCosmetics : MonoBehaviour {
             leftX = 0.17f * (velocity.x / moveSpeed) + leftEyeIdle.x;
             rightX = 0.12f * (velocity.x / moveSpeed) + rightEyeIdle.x;
         }
+        
+        leftX += eyeDistanceModifier;
+        rightX -= eyeDistanceModifier;
         
         Vector3 leftPos = new Vector3(leftX, leftY, -0.1f);
         leftEye.localPosition = Vector3.Lerp(leftEye.localPosition, leftPos, 0.1f);
