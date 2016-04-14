@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour {
     
 	void Start () {
 		state = GameState.Menu;
+        
+        startLevel = Mathf.Max(startLevel, 1);
 	}
 
 	// Update is called once per frame
@@ -79,7 +81,7 @@ public class GameController : MonoBehaviour {
 
 	public void StartGame() {
 		state = GameState.Playing;
-		currentLevel = startLevel;
+		currentLevel = startLevel + (nonLevelScenes - 1);
 		Application.LoadLevel(currentLevel);
 	}
 
@@ -118,7 +120,7 @@ public class GameController : MonoBehaviour {
 			case LevelState.Playing:
                 break;
             case LevelState.Secret:
-                Application.LoadLevel(0);
+                Application.LoadLevel(Application.loadedLevelName + "_Secret");
 				break;
 			case LevelState.Completed:
 				if (!fading) {
