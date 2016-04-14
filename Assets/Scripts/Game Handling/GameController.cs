@@ -116,25 +116,29 @@ public class GameController : MonoBehaviour {
 
 	void CheckForLevelCompletion() {
 		if (levelController) {
-			switch (levelController.state) {
-			case LevelState.Playing:
-                break;
-            case LevelState.Secret:
-                Application.LoadLevel(Application.loadedLevelName + "_Secret");
-				break;
-			case LevelState.Completed:
-				if (!fading) {
-					fading = true;
-					StartCoroutine("LoadNextLevel");
-				}
-				break;
-			case LevelState.Failed:
-				if (!fading) {
-					fading = true;
-					StartCoroutine("RestartCurrentLevel");
-				}
-				break;
-			}
+            if (!fading) {
+                switch (levelController.state) {
+                    case LevelState.Playing:
+                        break;
+                    case LevelState.Secret:
+                        fading = true;
+                        StartCoroutine("LoadSecretLevel");
+                        break;
+                    case LevelState.Completed:
+                        if (levelController.isSecretLevel) {
+                            fading = true;
+                            StartCoroutine("LoadSecretParentLevel");
+                        } else {
+                            fading = true;
+                            StartCoroutine("LoadNextLevel");
+                        }
+                        break;
+                    case LevelState.Failed:
+                        fading = true;
+                        StartCoroutine("RestartCurrentLevel");
+                        break;
+                }
+            }
 		} else {
 			try {
 				levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
@@ -162,4 +166,19 @@ public class GameController : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevelName);
 		fading = false;
 	}
+    
+    IEnumerator LoadSecretLevel() {
+        float fadeTime = fader.BeginFade(1, false);
+        yield return new WaitForSeconds(fadeTime);
+        Application.LoadLevel(Application.loadedLevelName + "_Secret");
+        fading = false;
+    }
+    
+    IEnumerator LoadSecretParentLevel() {
+        float fadeTime = fader.BeginFade(1, true);
+        yield return new WaitForSeconds(fadeTime);
+        string levelName = Application.loadedLevelName.Split('_')[0];
+        Application.LoadLevel(levelName);
+        fading = false;
+    }
 }

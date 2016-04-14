@@ -18,6 +18,7 @@ public class LevelController : MonoBehaviour {
 	public GoalController Goal1;
 	public GoalController Goal2;
     public float SpawnDelay = 0.0f;
+    public bool isSecretLevel = false;
 	public Vector3[] spawnPoints;
     [Header("Optional level setup")]
     public SecretTrigger secretTrigger;

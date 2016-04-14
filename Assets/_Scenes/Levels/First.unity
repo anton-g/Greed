@@ -1406,9 +1406,11 @@ MonoBehaviour:
   Goal1: {fileID: 1236233307}
   Goal2: {fileID: 1617831644}
   SpawnDelay: 1
+  isSecretLevel: 0
   spawnPoints:
   - {x: 15, y: 25, z: 0}
   - {x: -15, y: 25, z: 0}
+  secretTrigger: {fileID: 0}
   state: 0
 --- !u!4 &1578757488
 Transform:

@@ -829,6 +829,7 @@ MonoBehaviour:
   spawnPoints:
   - {x: -2.5, y: 0, z: 0}
   - {x: 2.5, y: 0, z: 0}
+  secretTrigger: {fileID: 0}
   state: 0
 --- !u!4 &1578757488
 Transform:
