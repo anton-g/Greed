@@ -13,7 +13,7 @@ public class DataManager : MonoBehaviour {
         }    
         DontDestroyOnLoad(gameObject);
         
-        reachedLevel = 5;
+        reachedLevel = 1;
     }
 
     void Update()

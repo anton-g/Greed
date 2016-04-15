@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1647672297}
+  m_FirstSelected: {fileID: 247697907}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &631900865
@@ -892,6 +892,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 2022159259}
+  dataManager: {fileID: 144160, guid: 867639048ad124ffa833cf250332e33b, type: 2}
+  continueBtn: {fileID: 1647672301}
 --- !u!4 &857020481
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,7 +1417,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1647672299}
   m_OnClick:
     m_PersistentCalls:

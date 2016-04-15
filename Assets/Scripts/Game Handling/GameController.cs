@@ -41,6 +41,10 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.LoadLevel("Menu");
+        }
+        
 		switch (state) {
 		case GameState.Menu:
             break;
@@ -89,7 +93,7 @@ public class GameController : MonoBehaviour {
 	}
     
     public void ContinueGame() {
-        PlayFromLevel(DataManager.Instance.reachedLevel);
+        PlayFromLevel(DataManager.Instance.reachedLevel + (nonLevelScenes - 1));
     }
     
     private void PlayFromLevel(int level) {
@@ -142,6 +146,7 @@ public class GameController : MonoBehaviour {
                             fading = true;
                             StartCoroutine("LoadSecretParentLevel");
                         } else {
+                            DataManager.Instance.reachedLevel = Application.loadedLevel - nonLevelScenes;
                             fading = true;
                             StartCoroutine("LoadNextLevel");
                         }
