@@ -619,6 +619,7 @@ MonoBehaviour:
   Goal1: {fileID: 1548251098}
   Goal2: {fileID: 1548251098}
   SpawnDelay: 0
+  isSecretLevel: 0
   spawnPoints:
   - {x: 5, y: 0, z: 0}
   - {x: -5, y: 0, z: 0}
@@ -898,6 +899,10 @@ Prefab:
     - target: {fileID: 2061924, guid: 9f8067a1d421944808735d9ff7b9e6bf, type: 2}
       propertyPath: m_BackGroundColor.b
       value: .172549024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061924, guid: 9f8067a1d421944808735d9ff7b9e6bf, type: 2}
+      propertyPath: m_HDR
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f8067a1d421944808735d9ff7b9e6bf, type: 2}
