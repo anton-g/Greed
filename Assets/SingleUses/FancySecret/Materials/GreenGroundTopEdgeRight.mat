@@ -6,12 +6,13 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: test 1
+  m_Name: GreenGroundTopEdgeRight
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _PARALLAXMAP
+  m_ShaderKeywords: _ALPHATEST_ON _EMISSION _METALLICGLOSSMAP
   m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -19,8 +20,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 979aa80f7bb194875ba06256faf04e78, type: 3}
-          m_Scale: {x: 10, y: 1}
+          m_Texture: {fileID: 2800000, guid: 8bed218ec5b6f4456a322b7fbd76ae1f, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -40,22 +41,22 @@ Material:
         first:
           name: _ParallaxMap
         second:
-          m_Texture: {fileID: 2800000, guid: 979aa80f7bb194875ba06256faf04e78, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _OcclusionMap
         second:
-          m_Texture: {fileID: 2800000, guid: 979aa80f7bb194875ba06256faf04e78, type: 3}
+          m_Texture: {fileID: 2800000, guid: 8bed218ec5b6f4456a322b7fbd76ae1f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 2800000, guid: 979aa80f7bb194875ba06256faf04e78, type: 3}
-          m_Scale: {x: 10, y: 1}
+          m_Texture: {fileID: 2800000, guid: 8bed218ec5b6f4456a322b7fbd76ae1f, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -75,7 +76,14 @@ Material:
         first:
           name: _MetallicGlossMap
         second:
-          m_Texture: {fileID: 2800000, guid: 979aa80f7bb194875ba06256faf04e78, type: 3}
+          m_Texture: {fileID: 2800000, guid: 8bed218ec5b6f4456a322b7fbd76ae1f, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MKGlowTex
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -93,8 +101,12 @@ Material:
         second: .5
       data:
         first:
+          name: PixelSnap
+        second: 0
+      data:
+        first:
           name: _Parallax
-        second: .0199999996
+        second: .00499999989
       data:
         first:
           name: _ZWrite
@@ -122,10 +134,22 @@ Material:
       data:
         first:
           name: _Mode
-        second: 0
+        second: 1
       data:
         first:
           name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _MKGlowPower
+        second: 5
+      data:
+        first:
+          name: _MKGlowTexStrength
+        second: 1
+      data:
+        first:
+          name: _MKGlowOffSet
         second: 0
     m_Colors:
       data:
@@ -135,4 +159,12 @@ Material:
       data:
         first:
           name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _MKGlowColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _MKGlowTexColor
         second: {r: 1, g: 1, b: 1, a: 1}
