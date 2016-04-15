@@ -5,18 +5,18 @@ public class MenuController : MonoBehaviour {
 	public GameController gc;
 
 	public void OnClickContinue() {
-		gc.StartGame();
+		gc.ContinueGame();
 	}
 
 	public void OnClickNewGame() {
-		Debug.Log("NewGame");
+		gc.StartGame();
 	}
 
 	public void OnClickSettings() {
-		Debug.Log("Settings");
+		
 	}
 
 	public void OnClickQuit() {
-		Debug.Log("Quit");
+		
 	}
 }

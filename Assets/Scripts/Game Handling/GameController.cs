@@ -11,6 +11,7 @@ enum GameState {
 public class GameController : MonoBehaviour {
 	[Header("Game settings")]
     public int nonLevelScenes = 1;
+    public GameObject dataManager;
     
 	[Header("GUI")]
 	public Fader fader;
@@ -24,9 +25,12 @@ public class GameController : MonoBehaviour {
 	LevelController levelController;
 	bool fading = false;
 	GameState state;
-	
+    
     void Awake() {
         levelCount = Application.levelCount - nonLevelScenes;
+        
+        if (DataManager.Instance == null)
+            Instantiate(dataManager);
     }
     
 	void Start () {
@@ -80,10 +84,19 @@ public class GameController : MonoBehaviour {
     }
 
 	public void StartGame() {
-		state = GameState.Playing;
-		currentLevel = startLevel + (nonLevelScenes - 1);
-		Application.LoadLevel(currentLevel);
+		int firstLevel = startLevel + (nonLevelScenes - 1);
+        PlayFromLevel(firstLevel);
 	}
+    
+    public void ContinueGame() {
+        PlayFromLevel(DataManager.Instance.reachedLevel);
+    }
+    
+    private void PlayFromLevel(int level) {
+        TransitionToState(GameState.Playing);
+        currentLevel = level;
+        Application.LoadLevel(currentLevel);
+    }
 
     void CheckInput() {
         if (Input.GetKeyDown(KeyCode.R)) {

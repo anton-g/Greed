@@ -1477,6 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonLevelScenes: 2
+  dataManager: {fileID: 144160, guid: 867639048ad124ffa833cf250332e33b, type: 2}
   fader: {fileID: 2022159258}
   pauseMenu: {fileID: 442471458}
   startLevel: 1
