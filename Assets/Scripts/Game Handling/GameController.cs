@@ -146,7 +146,7 @@ public class GameController : MonoBehaviour {
                             fading = true;
                             StartCoroutine("LoadSecretParentLevel");
                         } else {
-                            DataManager.Instance.reachedLevel = Application.loadedLevel - nonLevelScenes;
+                            DataManager.Instance.reachedLevel = Application.loadedLevel - nonLevelScenes + 2;
                             fading = true;
                             StartCoroutine("LoadNextLevel");
                         }
