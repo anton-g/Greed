@@ -50,7 +50,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd2acc07aaf6847b5848fe53f01fff3e, type: 3}
   m_Name: 
@@ -70,12 +70,6 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 768
-  horizontalRayCount: 8
-  verticalRayCount: 8
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  col: {fileID: 0}
-  rayLength: .100000001
 --- !u!212 &21248830
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,7 +104,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120946}

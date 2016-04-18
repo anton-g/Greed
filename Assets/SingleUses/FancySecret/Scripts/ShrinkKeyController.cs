@@ -8,6 +8,7 @@ public class ShrinkKeyController : KeyController {
 	// Use this for initialization
 	public override void Collect() {
         StartCoroutine(shrinkTargets());
+        graphic.SetActive(false);
     }
     
     IEnumerator shrinkTargets() {
