@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Collectible : RayCastController {
-	public float rayLength = 0.1f;
-	public CollectibleCollisions Raycast() {
+[RequireComponent(typeof(BoxCollider2D))]
+public class Collectible : MonoBehaviour {
+	public LayerMask collisionMask;
+	BoxCollider2D col;
+    
+    void Start() {
+        col = GetComponent<BoxCollider2D> ();
+    }
+	
+	/*public CollectibleCollisions Raycast() {
 		CollectibleCollisions collisions = new CollectibleCollisions();
 		collisions.top = RaycastUp();
 		collisions.left = RaycastLeft();
@@ -11,8 +18,18 @@ public class Collectible : RayCastController {
 		collisions.bottom = RaycastDown();
 		
 		return collisions;
+	}*/
+	
+	public GameObject SphereCast() {
+		Vector2 bottomLeft = new Vector2 (col.bounds.min.x, col.bounds.min.y);
+		Vector2 topRight = new Vector2 (col.bounds.max.x, col.bounds.max.y);
+		Collider2D hit = Physics2D.OverlapArea(bottomLeft, topRight, collisionMask);
+		if (hit) {
+			return hit.gameObject;
+		}
+		return null;
 	}
-
+/*
 	GameObject RaycastUp() {
 		for (int i = 0; i < verticalRayCount; i++)
 		{
@@ -71,5 +88,5 @@ public class Collectible : RayCastController {
 	
 	public struct CollectibleCollisions {
 		public GameObject left, right, top, bottom;
-	}
+	}*/
 }

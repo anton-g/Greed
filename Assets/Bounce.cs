@@ -4,15 +4,7 @@ using System.Collections;
 public class Bounce : Collectible {
 
 	void Update() {
-		UpdateRaycastOrigins ();
-		
-		CollectibleCollisions collisions = Raycast();
-		
-		//TODO yeah u know
-		Collect(collisions.top);
-		Collect(collisions.bottom);
-		Collect(collisions.left);
-		Collect(collisions.right);
+		Collect(SphereCast());
 	}
 	
 	void Collect(GameObject g) {
