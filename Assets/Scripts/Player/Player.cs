@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 
 	[Header("Interaction settings")]
 	public float playerBounceForce = 20.0f;
-
+	float bounceVelocity = 0.0f;
 	float gravity;
 	float maxJumpVelocity;
 	float minJumpVelocity;
@@ -76,6 +76,11 @@ public class Player : MonoBehaviour {
         if (controller.collisions.collidingKey != null) {
             controller.collisions.collidingKey.GetComponent<KeyController>().Collect();
         }
+		
+		if (bounceVelocity != 0.0f) {
+			velocity.y = bounceVelocity;
+			bounceVelocity = 0.0f;
+		}
 
 		float moveDir = 0;
 		moveDir = Input.GetAxisRaw(HorizontalButtonName);
@@ -142,6 +147,10 @@ public class Player : MonoBehaviour {
         gravityModifier = newGravityModifer;
         CalculateJumpVariables();
     }
+	
+	public void AddBounce(float strength) {
+		bounceVelocity = strength;
+	}
     
 	#region PositionHint management
 

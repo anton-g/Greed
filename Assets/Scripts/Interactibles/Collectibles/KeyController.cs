@@ -10,7 +10,7 @@ public class KeyController : MonoBehaviour {
     public GameObject graphic;
     public ParticleSystem particle;
     
-    public void Collect() {
+    public virtual void Collect() {
         targetDoor.Open();
         
         graphic.SetActive(false);
