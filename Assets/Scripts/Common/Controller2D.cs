@@ -75,6 +75,10 @@ public class Controller2D : RayCastController {
                     collisions.collidingKey = hit.collider.gameObject;
                     continue;
                 }
+				
+				if (hit.collider.tag == "NoCollision") {
+					continue;
+				}
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				

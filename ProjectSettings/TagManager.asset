@@ -10,6 +10,7 @@ TagManager:
   - Player1
   - Player2
   - Key
+  - NoCollision
   layers:
   - Default
   - TransparentFX
