@@ -79,6 +79,7 @@ public class GameController : MonoBehaviour {
                 break;
             case GameState.Paused:
                 PauseGame();
+                SaveGame();
                 break;
             case GameState.Playing:
                 break;
@@ -129,6 +130,10 @@ public class GameController : MonoBehaviour {
     
     void TogglePause() {
         TransitionToState(state == GameState.Paused ? GameState.Playing : GameState.Paused);
+    }
+    
+    void SaveGame() {
+        DataManager.Instance.Save();
     }
 
 	void CheckForLevelCompletion() {
