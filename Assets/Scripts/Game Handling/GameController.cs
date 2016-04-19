@@ -79,6 +79,7 @@ public class GameController : MonoBehaviour {
                 break;
             case GameState.Paused:
                 PauseGame();
+                SaveGame();
                 break;
             case GameState.Playing:
                 break;
@@ -130,6 +131,10 @@ public class GameController : MonoBehaviour {
     void TogglePause() {
         TransitionToState(state == GameState.Paused ? GameState.Playing : GameState.Paused);
     }
+    
+    void SaveGame() {
+        DataManager.Instance.Save();
+    }
 
 	void CheckForLevelCompletion() {
 		if (levelController) {
@@ -147,6 +152,7 @@ public class GameController : MonoBehaviour {
                             StartCoroutine("LoadSecretParentLevel");
                         } else {
                             DataManager.Instance.reachedLevel = Application.loadedLevel - nonLevelScenes + 2;
+                            DataManager.Instance.Save();
                             fading = true;
                             StartCoroutine("LoadNextLevel");
                         }
