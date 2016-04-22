@@ -56,23 +56,23 @@ public class Controller2D : RayCastController {
 		
 		for (int i = 0; i < horizontalRayCount; i++)
 		{
-			//Right
-			Vector2 rayOriginRight = raycastOrigins.bottomRight;
-			rayOriginRight += Vector2.up * (horizontalRayCount * i + velocity.y);
-			RaycastHit2D hitRight = Physics2D.Raycast(rayOriginRight, Vector2.right, rayLength, collisionMask);
-			
-			Debug.DrawRay(rayOriginRight, Vector2.right * rayLength, Color.red);			
-			
-			if (hitRight) HandleHorizontalHit(hitRight, 1, ref velocity, i == 0, directionX != 1);
-			
 			//Left
 			Vector2 rayOriginLeft = raycastOrigins.bottomLeft;
-			rayOriginLeft += Vector2.up * (horizontalRayCount * i + velocity.y);
+			rayOriginLeft += Vector2.up * (horizontalRaySpacing * i);
 			RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginLeft, Vector2.left, rayLength, collisionMask);
 			
 			Debug.DrawRay(rayOriginLeft, Vector2.left * rayLength, Color.red);
 			
 			if (hitLeft) HandleHorizontalHit(hitLeft, -1, ref velocity, i == 0, directionX != -1);
+			
+			//Right
+			Vector2 rayOriginRight = raycastOrigins.bottomRight;
+			rayOriginRight += Vector2.up * (horizontalRaySpacing * i);
+			RaycastHit2D hitRight = Physics2D.Raycast(rayOriginRight, Vector2.right, rayLength, collisionMask);
+			
+			Debug.DrawRay(rayOriginRight, Vector2.right * rayLength, Color.red);			
+			
+			if (hitRight) HandleHorizontalHit(hitRight, 1, ref velocity, i == 0, directionX != 1);
 		}
 	}
 	
