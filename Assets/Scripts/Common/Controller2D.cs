@@ -54,64 +54,50 @@ public class Controller2D : RayCastController {
 			rayLength = 2*skinWidth;
 		}
 		
-		/*for (int i = 0; i < horizontalRayCount; i ++) {
-			Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
-			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
-			
-			Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength,Color.red);
-			
-			if (hit) {
-				HandleHorizontalHit(hit, directionX, ref velocity, i == 0);
-			}
-		}*/
-		Debug.Log(directionX);
 		for (int i = 0; i < horizontalRayCount; i++)
 		{
 			//Right
 			Vector2 rayOriginRight = raycastOrigins.bottomRight;
-			rayOriginRight += Vector2.up * (horizontalRayCount * i);
+			rayOriginRight += Vector2.up * (horizontalRayCount * i + velocity.y);
 			RaycastHit2D hitRight = Physics2D.Raycast(rayOriginRight, Vector2.right, rayLength, collisionMask);
 			
-			Debug.DrawRay(rayOriginRight, Vector2.right * rayLength, Color.red);
+			Debug.DrawRay(rayOriginRight, Vector2.right * rayLength, Color.red);			
 			
 			if (hitRight) HandleHorizontalHit(hitRight, 1, ref velocity, i == 0, directionX != 1);
 			
 			//Left
 			Vector2 rayOriginLeft = raycastOrigins.bottomLeft;
-			rayOriginLeft += Vector2.up * (horizontalRayCount * i);
+			rayOriginLeft += Vector2.up * (horizontalRayCount * i + velocity.y);
 			RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginLeft, Vector2.left, rayLength, collisionMask);
 			
 			Debug.DrawRay(rayOriginLeft, Vector2.left * rayLength, Color.red);
 			
-			if (hitLeft) HandleHorizontalHit(hitLeft, -1, ref velocity, i == 0, directionX != 1);
+			if (hitLeft) HandleHorizontalHit(hitLeft, -1, ref velocity, i == 0, directionX != -1);
 		}
 	}
 	
 	void HandleHorizontalHit(RaycastHit2D hit, float directionX, ref Vector3 velocity, bool alongGroundHit, bool onlyDeath = false) {
-		if (onlyDeath && hit.collider.tag == "Death") {
-            collisions.death = true;
-            return;
-        }
-		
 		bool shouldCollide = true;
 		
-		if (hit.distance == 0 || hit.collider.tag == "NoCollision") {
-			shouldCollide = false;
-		}
-
 		if (hit.collider.tag == "Death") {
 			collisions.death = true;
 			shouldCollide = false;
+			return;
 		}
 		
-		if (hit.collider.tag == "Key") {
-			collisions.collidingKey = hit.collider.gameObject;
-			shouldCollide = false;
-		}
-		
-		if (shouldCollide) {
-			float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+		if (!onlyDeath)
+		{
+			if (hit.distance == 0 || hit.collider.tag == "NoCollision") {
+				shouldCollide = false;
+			}
+			
+			if (hit.collider.tag == "Key") {
+				collisions.collidingKey = hit.collider.gameObject;
+				shouldCollide = false;
+			}
+			
+			if (shouldCollide) {
+				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				
 				if (alongGroundHit && slopeAngle <= maxClimbAngle) {
 					if (collisions.descendingSlope) {
@@ -138,7 +124,9 @@ public class Controller2D : RayCastController {
 					collisions.left = directionX == -1;
 					collisions.right = directionX == 1;
 				}
+			}
 		}
+		
 	}
 	
 	void VerticalCollisions(ref Vector3 velocity) {
