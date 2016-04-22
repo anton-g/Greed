@@ -7,16 +7,16 @@ public class Controller2D : RayCastController {
 	public Vector2 playerInput;
 	
 	public CollisionInfo collisions;
-
+	
 	public override void Start() {
 		base.Start ();
 		collisions.faceDir = 1;
 	}
-
+	
 	public void Move(Vector3 velocity, bool standingOnPlatform) {
 		Move (velocity, Vector2.zero, standingOnPlatform);
 	}
-
+	
 	public void Move(Vector3 velocity, Vector2 input, bool standingOnPlatform = false) {
 		UpdateRaycastOrigins ();
 		collisions.Reset ();
@@ -54,7 +54,7 @@ public class Controller2D : RayCastController {
 			rayLength = 2*skinWidth;
 		}
 		
-		for (int i = 0; i < horizontalRayCount; i ++) {
+		/*for (int i = 0; i < horizontalRayCount; i ++) {
 			Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
 			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
 			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
@@ -62,27 +62,58 @@ public class Controller2D : RayCastController {
 			Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength,Color.red);
 			
 			if (hit) {
-				if (hit.distance == 0) {
-					continue;
-				}
+				HandleHorizontalHit(hit, directionX, ref velocity, i == 0);
+			}
+		}*/
+		Debug.Log(directionX);
+		for (int i = 0; i < horizontalRayCount; i++)
+		{
+			//Right
+			Vector2 rayOriginRight = raycastOrigins.bottomRight;
+			rayOriginRight += Vector2.up * (horizontalRayCount * i);
+			RaycastHit2D hitRight = Physics2D.Raycast(rayOriginRight, Vector2.right, rayLength, collisionMask);
+			
+			Debug.DrawRay(rayOriginRight, Vector2.right * rayLength, Color.red);
+			
+			if (hitRight) HandleHorizontalHit(hitRight, 1, ref velocity, i == 0, directionX != 1);
+			
+			//Left
+			Vector2 rayOriginLeft = raycastOrigins.bottomLeft;
+			rayOriginLeft += Vector2.up * (horizontalRayCount * i);
+			RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginLeft, Vector2.left, rayLength, collisionMask);
+			
+			Debug.DrawRay(rayOriginLeft, Vector2.left * rayLength, Color.red);
+			
+			if (hitLeft) HandleHorizontalHit(hitLeft, -1, ref velocity, i == 0, directionX != 1);
+		}
+	}
+	
+	void HandleHorizontalHit(RaycastHit2D hit, float directionX, ref Vector3 velocity, bool alongGroundHit, bool onlyDeath = false) {
+		if (onlyDeath && hit.collider.tag == "Death") {
+            collisions.death = true;
+            return;
+        }
+		
+		bool shouldCollide = true;
+		
+		if (hit.distance == 0 || hit.collider.tag == "NoCollision") {
+			shouldCollide = false;
+		}
 
-				if (hit.collider.tag == "Death") {
-					collisions.death = true;
-					continue;
-				}
-                
-                if (hit.collider.tag == "Key") {
-                    collisions.collidingKey = hit.collider.gameObject;
-                    continue;
-                }
+		if (hit.collider.tag == "Death") {
+			collisions.death = true;
+			shouldCollide = false;
+		}
+		
+		if (hit.collider.tag == "Key") {
+			collisions.collidingKey = hit.collider.gameObject;
+			shouldCollide = false;
+		}
+		
+		if (shouldCollide) {
+			float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 				
-				if (hit.collider.tag == "NoCollision") {
-					continue;
-				}
-
-				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-				
-				if (i == 0 && slopeAngle <= maxClimbAngle) {
+				if (alongGroundHit && slopeAngle <= maxClimbAngle) {
 					if (collisions.descendingSlope) {
 						collisions.descendingSlope = false;
 						velocity = collisions.velocityOld;
@@ -98,7 +129,7 @@ public class Controller2D : RayCastController {
 				
 				if (!collisions.climbingSlope || slopeAngle > maxClimbAngle) {
 					velocity.x = (hit.distance - skinWidth) * directionX;
-					rayLength = hit.distance;
+					//rayLength = hit.distance;
 					
 					if (collisions.climbingSlope) {
 						velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
@@ -107,7 +138,6 @@ public class Controller2D : RayCastController {
 					collisions.left = directionX == -1;
 					collisions.right = directionX == 1;
 				}
-			}
 		}
 	}
 	
