@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour {
     public int nonLevelScenes = 1;
     public GameObject dataManager;
     
+    [Header("Sound")]
+    public AudioClip pauseSound;
+    
 	[Header("GUI")]
 	public Fader fader;
     public Canvas pauseMenu;
@@ -26,15 +29,17 @@ public class GameController : MonoBehaviour {
 	bool fading = false;
 	GameState state;
     
+    AudioSource source;
+    
     void Awake() {
         levelCount = Application.levelCount - nonLevelScenes;
-        
+        source = GetComponent<AudioSource>();
         if (DataManager.Instance == null)
             Instantiate(dataManager);
     }
     
 	void Start () {
-		state = GameState.Menu;
+		TransitionToState(GameState.Menu);
         
         startLevel = Mathf.Max(startLevel, 1);
 	}
@@ -76,12 +81,15 @@ public class GameController : MonoBehaviour {
         switch (toState)
         {
             case GameState.Menu:
+                AudioManager.Instance.PlayMenuMusic();
                 break;
             case GameState.Paused:
                 PauseGame();
                 SaveGame();
+                AudioManager.Instance.PlayPauseMusic();
                 break;
             case GameState.Playing:
+                AudioManager.Instance.PlayGameMusic();
                 break;
         }
         
@@ -115,6 +123,7 @@ public class GameController : MonoBehaviour {
     void CheckForPause() {
         if (Input.GetKeyDown(KeyCode.P)) {
             TogglePause();
+            source.PlayOneShot(pauseSound, AudioManager.Instance.Volume);
         }
     }
     
