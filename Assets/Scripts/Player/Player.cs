@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	
 	[Header("Sound")]
 	public AudioClip bounceSound;
+	public AudioClip highFallSound;
     
 	[Header("Movement")]
 	public float moveSpeed = 6;
@@ -120,6 +121,8 @@ public class Player : MonoBehaviour {
         if (controller.collisions.below) {
             if (velocity.y < -60.0f) {
                 camShake.Shake(0.2f, 0.1f);
+				
+				source.PlayOneShot(highFallSound, AudioManager.Instance.Volume);
             }
 
             currentGhostJumpTime = 0;            

@@ -387,6 +387,7 @@ MonoBehaviour:
   positionIndicator: {fileID: 147656, guid: e850fdf565aff4d8489f20e3ac81e313, type: 2}
   crushParticle: {fileID: 117726, guid: 122703cba0f3341df9e8883f50c1e233, type: 2}
   bounceSound: {fileID: 8300000, guid: 9292d49c01bbd4c1888dc5adb2c6b88f, type: 3}
+  highFallSound: {fileID: 8300000, guid: abbc5f7a52ed049feb93ccc36725641a, type: 3}
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2
@@ -557,6 +558,10 @@ Prefab:
       propertyPath: bounceSound
       value: 
       objectReference: {fileID: 8300000, guid: 9292d49c01bbd4c1888dc5adb2c6b88f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: highFallSound
+      value: 
+      objectReference: {fileID: 8300000, guid: abbc5f7a52ed049feb93ccc36725641a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134912}
