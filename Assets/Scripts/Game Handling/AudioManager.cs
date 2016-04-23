@@ -4,6 +4,8 @@ using System.Collections;
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance = null;
 
+	AudioSource source;
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -11,5 +13,11 @@ public class AudioManager : MonoBehaviour {
             Destroy(gameObject);
         }    
         DontDestroyOnLoad(gameObject);
+		
+		source = GetComponent<AudioSource>();
     }
+	
+	void Start() {
+		
+	}
 }
