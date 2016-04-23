@@ -1660,15 +1660,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463322, guid: 9fde6024f80fe49008de06c9e2cb93dd, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 165354, guid: 9fde6024f80fe49008de06c9e2cb93dd, type: 2}
       propertyPath: m_Name
       value: LevelController
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490346, guid: 9fde6024f80fe49008de06c9e2cb93dd, type: 2}
-      propertyPath: loseSound
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11490346, guid: 9fde6024f80fe49008de06c9e2cb93dd, type: 2}
       propertyPath: Goal1
@@ -1702,6 +1698,10 @@ Prefab:
       propertyPath: secretTrigger
       value: 
       objectReference: {fileID: 1017533188}
+    - target: {fileID: 11490346, guid: 9fde6024f80fe49008de06c9e2cb93dd, type: 2}
+      propertyPath: loseSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 052a7e95079684c91a8a66c81486c870, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fde6024f80fe49008de06c9e2cb93dd, type: 2}
   m_IsPrefabParent: 0
