@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour {
     }
     
 	void Start () {
-		state = GameState.Menu;
+		TransitionToState(GameState.Menu);
         
         startLevel = Mathf.Max(startLevel, 1);
 	}
@@ -76,12 +76,15 @@ public class GameController : MonoBehaviour {
         switch (toState)
         {
             case GameState.Menu:
+                AudioManager.Instance.PlayMenuMusic();
                 break;
             case GameState.Paused:
                 PauseGame();
                 SaveGame();
+                AudioManager.Instance.PlayPauseMusic();
                 break;
             case GameState.Playing:
+                AudioManager.Instance.PlayGameMusic();
                 break;
         }
         
