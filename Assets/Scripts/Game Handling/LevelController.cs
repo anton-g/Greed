@@ -13,7 +13,8 @@ public class LevelController : MonoBehaviour {
 	[Header("Setup")]
 	public GameObject player1Prefab;
 	public GameObject player2Prefab;
-    
+    [Header("Audio")]
+	public AudioClip loseSound;
 	[Header("Level setup")]
 	public GoalController Goal1;
 	public GoalController Goal2;
@@ -29,6 +30,12 @@ public class LevelController : MonoBehaviour {
 	GameObject player1Object;
 	GameObject player2Object;
 	
+	AudioSource source;
+	
+	void Awake() {
+		source = GetComponent<AudioSource>();
+	}
+	
 	void Start () {
         Invoke("SpawnPlayers", SpawnDelay);
 	}
@@ -37,8 +44,9 @@ public class LevelController : MonoBehaviour {
         if (player1Object == null || player2Object == null)
             return;
         
-		if (!player1Object.activeSelf || !player2Object.activeSelf) {            
+		if (state != LevelState.Failed && (!player1Object.activeSelf || !player2Object.activeSelf)) {            
 			state = LevelState.Failed;
+			source.PlayOneShot(loseSound);
 		}
 
 		if (Goal1.playerIsInGoal && Goal2.playerIsInGoal) {
