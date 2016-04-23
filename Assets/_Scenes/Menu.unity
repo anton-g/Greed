@@ -1478,7 +1478,7 @@ MonoBehaviour:
   playMusic: {fileID: 8300000, guid: 5ff0df34fadbb4eceac0ea33cb30cb9f, type: 3}
   menuMusic: {fileID: 8300000, guid: aceae80a9330d4a07a583404254eae6a, type: 3}
   pauseMusic: {fileID: 8300000, guid: aceae80a9330d4a07a583404254eae6a, type: 3}
-  intialVolume: 1
+  Volume: 1
 --- !u!82 &1962383404
 AudioSource:
   m_ObjectHideFlags: 0

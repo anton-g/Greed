@@ -9,14 +9,14 @@ public class AudioManager : MonoBehaviour {
     public AudioClip pauseMusic;
 
     [Range(0.0f, 1.0f)]
-    public float intialVolume = 1.0f;
-
-    float _volume;
-    public float Volume {
-        get { return _volume; }
+    public float Volume;
+    
+    float _musicVolume;
+    public float MusicVolume {
+        get { return _musicVolume; }
         set { 
-            _volume = Mathf.Clamp(value, 0.0f, 1.0f);
-            source.volume = Volume;
+            _musicVolume = Mathf.Clamp(value, 0.0f, 1.0f);
+            source.volume = _musicVolume;
         }
     }
 
@@ -34,21 +34,24 @@ public class AudioManager : MonoBehaviour {
     }
 	
 	void Start() {
-		this.Volume = intialVolume;
+		this.MusicVolume = Volume;
 	}
     
     public void PlayMenuMusic() {
         source.Stop();
-        source.PlayOneShot(menuMusic);
+        source.clip = menuMusic;
+        source.Play();
     }
     
     public void PlayGameMusic() {
         source.Stop();
-        source.PlayOneShot(playMusic);
+        source.clip = playMusic;
+        source.Play();
     }
     
     public void PlayPauseMusic() {
         source.Stop();
-        source.PlayOneShot(pauseMusic);
+        source.clip = pauseMusic;
+        source.Play();
     }
 }
