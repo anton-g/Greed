@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Controller2D), typeof(PlayerCosmetics))]
+[RequireComponent(typeof(Controller2D), typeof(PlayerCosmetics), typeof(AudioSource))]
 public class Player : MonoBehaviour {
 	[Header("Setup")]
 	public string JumpButtonName;
@@ -10,6 +10,9 @@ public class Player : MonoBehaviour {
 
     [Header("Effects")]
     public GameObject crushParticle;
+	
+	[Header("Sound")]
+	public AudioClip bounceSound;
     
 	[Header("Movement")]
 	public float moveSpeed = 6;
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour {
 	Controller2D controller;
 	GameObject positionHintObject;
     CameraShake camShake;
+	AudioSource source;
 
     [HideInInspector]
     public PlayerCosmetics cosmetics;
@@ -47,6 +51,8 @@ public class Player : MonoBehaviour {
         camShake = Camera.main.GetComponent<CameraShake>();
 		controller = GetComponent<Controller2D> ();
         
+		source = GetComponent<AudioSource>();
+		
         CalculateJumpVariables();
 	}
     
@@ -71,6 +77,9 @@ public class Player : MonoBehaviour {
 
 		if (controller.collisions.playerCollisionBelow) {
 			velocity.y = playerBounceForce;
+			
+			if (!source.isPlaying)
+				source.PlayOneShot(bounceSound);
 		}
         
         if (controller.collisions.collidingKey != null) {
