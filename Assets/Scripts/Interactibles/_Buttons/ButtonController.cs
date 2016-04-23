@@ -76,7 +76,7 @@ public abstract class ButtonController<T> : RayCastController where T:MonoBehavi
 
 		pushed = true;
 		
-		source.PlayOneShot(pushSound);
+		source.PlayOneShot(pushSound, AudioManager.Instance.Volume);
 		
 		ButtonPushed();
 	}

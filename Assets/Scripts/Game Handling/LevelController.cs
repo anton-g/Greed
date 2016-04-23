@@ -46,7 +46,7 @@ public class LevelController : MonoBehaviour {
         
 		if (state != LevelState.Failed && (!player1Object.activeSelf || !player2Object.activeSelf)) {            
 			state = LevelState.Failed;
-			source.PlayOneShot(loseSound);
+			source.PlayOneShot(loseSound, AudioManager.Instance.Volume);
 		}
 
 		if (Goal1.playerIsInGoal && Goal2.playerIsInGoal) {

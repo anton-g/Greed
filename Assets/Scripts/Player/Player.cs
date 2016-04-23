@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
 			velocity.y = playerBounceForce;
 			
 			if (!source.isPlaying)
-				source.PlayOneShot(bounceSound);
+				source.PlayOneShot(bounceSound, AudioManager.Instance.Volume);
 		}
         
         if (controller.collisions.collidingKey != null) {

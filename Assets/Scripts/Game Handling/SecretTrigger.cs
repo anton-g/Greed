@@ -21,7 +21,7 @@ public class SecretTrigger : MonoBehaviour {
 	    if (Physics2D.OverlapCircle(transform.position, 0.5f, collisionLayer) && !collected) {
             collected = true;
             
-            source.PlayOneShot(collectionSound, 1.0f);
+            source.PlayOneShot(collectionSound, AudioManager.Instance.Volume);
             
             Invoke("Deactivate", collectionSound.length);
         }
