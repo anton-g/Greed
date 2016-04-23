@@ -15,6 +15,7 @@ public class LevelController : MonoBehaviour {
 	public GameObject player2Prefab;
     [Header("Audio")]
 	public AudioClip loseSound;
+	public AudioClip winSound;
 	[Header("Level setup")]
 	public GoalController Goal1;
 	public GoalController Goal2;
@@ -49,8 +50,9 @@ public class LevelController : MonoBehaviour {
 			source.PlayOneShot(loseSound, AudioManager.Instance.Volume);
 		}
 
-		if (Goal1.playerIsInGoal && Goal2.playerIsInGoal) {
+		if (state != LevelState.Completed && (Goal1.playerIsInGoal && Goal2.playerIsInGoal)) {
 			state = LevelState.Completed;
+			source.PlayOneShot(winSound, AudioManager.Instance.Volume);
 		}
         
         if (secretTrigger != null && secretTrigger.collected) {

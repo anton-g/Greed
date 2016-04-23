@@ -113,6 +113,7 @@ MonoBehaviour:
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
   loseSound: {fileID: 8300000, guid: 052a7e95079684c91a8a66c81486c870, type: 3}
+  winSound: {fileID: 8300000, guid: 480b5d5ed054a429ab2a05f3746db0b9, type: 3}
   Goal1: {fileID: 0}
   Goal2: {fileID: 0}
   SpawnDelay: 1
@@ -128,7 +129,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: winSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 480b5d5ed054a429ab2a05f3746db0b9, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165354}
