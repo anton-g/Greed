@@ -118,7 +118,7 @@ Transform:
   - {fileID: 1530799967}
   - {fileID: 461869970}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &19569782
 Prefab:
   m_ObjectHideFlags: 0
@@ -405,6 +405,48 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1400600244}
   m_Script: {fileID: 11500000, guid: f2e1976b860234c968503646e2692fe2, type: 3}
+--- !u!1001 &99786268
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &112967436 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400726, guid: d365b2279796641d5ac070e539bea5cc, type: 2}
@@ -2553,6 +2595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
+  loseSound: {fileID: 0}
+  winSound: {fileID: 0}
   Goal1: {fileID: 1288677662}
   Goal2: {fileID: 458044491}
   SpawnDelay: 0
@@ -2573,7 +2617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &1579293651 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400726, guid: d365b2279796641d5ac070e539bea5cc, type: 2}
