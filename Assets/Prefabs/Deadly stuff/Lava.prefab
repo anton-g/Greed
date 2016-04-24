@@ -27,6 +27,7 @@ GameObject:
   - 23: {fileID: 2302270}
   - 114: {fileID: 11478444}
   - 61: {fileID: 6100570}
+  - 114: {fileID: 11462342}
   m_Layer: 10
   m_Name: LavaWaves
   m_TagString: Death
@@ -135,6 +136,21 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &11462342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a724e3cde00ba4b91a3dd98c200d9980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 768
+  splashParticles: {fileID: 172480, guid: 082e7e59a822b488fb880ac2c07409a2, type: 2}
 --- !u!114 &11478444
 MonoBehaviour:
   m_ObjectHideFlags: 1

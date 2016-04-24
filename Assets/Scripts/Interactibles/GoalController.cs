@@ -8,7 +8,9 @@ public class GoalController : RayCastController {
 	public bool active = true;
 	[HideInInspector]
 	public bool playerIsInGoal;
-
+	[HideInInspector]
+	public bool overrideActive = false;
+	
 	Renderer rend;
     Material origMaterial;
     Color origColor;
@@ -34,8 +36,8 @@ public class GoalController : RayCastController {
 		if (active) {
 			GameObject hitPlayer = GetPlayerInGoal();
 
-            playerIsInGoal = hitPlayer != null;
-			if (playerIsInGoal) {
+            playerIsInGoal = hitPlayer != null || overrideActive;
+			if (playerIsInGoal && !overrideActive) {
 				rend.material.color = hitPlayer.GetComponent<Player>().cosmetics.graphic.color;
                 particleRenderer.material.color = rend.material.color;
 			} else {

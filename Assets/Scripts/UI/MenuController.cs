@@ -1,22 +1,38 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
 
 	public GameController gc;
+    public GameObject dataManager;
+
+    public Button continueBtn;
+
+    void Awake() {
+        if (DataManager.Instance == null)
+            Instantiate(dataManager);
+    }
+    
+    void Start() {
+        if (DataManager.Instance.reachedLevel > 1) {
+            continueBtn.interactable = true;
+            continueBtn.Select();
+        }
+    }
 
 	public void OnClickContinue() {
-		gc.StartGame();
+		gc.ContinueGame();
 	}
 
 	public void OnClickNewGame() {
-		Debug.Log("NewGame");
+		gc.StartGame();
 	}
 
 	public void OnClickSettings() {
-		Debug.Log("Settings");
+		
 	}
 
 	public void OnClickQuit() {
-		Debug.Log("Quit");
+		
 	}
 }

@@ -10,9 +10,13 @@ public enum ButtonState {
 /// Inherit from this class to create a button that controlls a specific component
 /// T: Target controller for the button inheriting from this class.
 /// </summary>
+[RequireComponent(typeof(AudioSource))]
 public abstract class ButtonController<T> : RayCastController where T:MonoBehaviour {
 	[Header("Button appearance")]
 	public Material pushedMaterial;
+	
+	[Header("Sound")]
+	public AudioClip pushSound;
 
 	[Header("Button settings")]
 	public DIRECTION pushableFromDirection;
@@ -24,6 +28,8 @@ public abstract class ButtonController<T> : RayCastController where T:MonoBehavi
 	private Renderer rend;
 	private Material origMat;
 
+	private AudioSource source;
+
 	public abstract void ButtonPushed();
 	public abstract void ButtonReleased();
 
@@ -32,6 +38,8 @@ public abstract class ButtonController<T> : RayCastController where T:MonoBehavi
 
 		rend = GetComponent<Renderer>();
 		origMat = rend.material;
+		
+		source = GetComponent<AudioSource>();
 	}
 
 	void Update () {
@@ -67,6 +75,9 @@ public abstract class ButtonController<T> : RayCastController where T:MonoBehavi
 		rend.material = pushedMaterial;
 
 		pushed = true;
+		
+		source.PlayOneShot(pushSound, AudioManager.Instance.Volume);
+		
 		ButtonPushed();
 	}
 

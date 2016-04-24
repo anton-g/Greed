@@ -11,6 +11,10 @@ enum GameState {
 public class GameController : MonoBehaviour {
 	[Header("Game settings")]
     public int nonLevelScenes = 1;
+    public GameObject dataManager;
+    
+    [Header("Sound")]
+    public AudioClip pauseSound;
     
 	[Header("GUI")]
 	public Fader fader;
@@ -24,19 +28,28 @@ public class GameController : MonoBehaviour {
 	LevelController levelController;
 	bool fading = false;
 	GameState state;
-	
+    
+    AudioSource source;
+    
     void Awake() {
         levelCount = Application.levelCount - nonLevelScenes;
+        source = GetComponent<AudioSource>();
+        if (DataManager.Instance == null)
+            Instantiate(dataManager);
     }
     
 	void Start () {
-		state = GameState.Menu;
+		TransitionToState(GameState.Menu);
         
         startLevel = Mathf.Max(startLevel, 1);
 	}
 
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.LoadLevel("Menu");
+        }
+        
 		switch (state) {
 		case GameState.Menu:
             break;
@@ -68,11 +81,15 @@ public class GameController : MonoBehaviour {
         switch (toState)
         {
             case GameState.Menu:
+                AudioManager.Instance.PlayMenuMusic();
                 break;
             case GameState.Paused:
                 PauseGame();
+                SaveGame();
+                AudioManager.Instance.PlayPauseMusic();
                 break;
             case GameState.Playing:
+                AudioManager.Instance.PlayGameMusic();
                 break;
         }
         
@@ -80,10 +97,19 @@ public class GameController : MonoBehaviour {
     }
 
 	public void StartGame() {
-		state = GameState.Playing;
-		currentLevel = startLevel + (nonLevelScenes - 1);
-		Application.LoadLevel(currentLevel);
+		int firstLevel = startLevel + (nonLevelScenes - 1);
+        PlayFromLevel(firstLevel);
 	}
+    
+    public void ContinueGame() {
+        PlayFromLevel(DataManager.Instance.reachedLevel + (nonLevelScenes - 1));
+    }
+    
+    private void PlayFromLevel(int level) {
+        TransitionToState(GameState.Playing);
+        currentLevel = level;
+        Application.LoadLevel(currentLevel);
+    }
 
     void CheckInput() {
         if (Input.GetKeyDown(KeyCode.R)) {
@@ -97,6 +123,7 @@ public class GameController : MonoBehaviour {
     void CheckForPause() {
         if (Input.GetKeyDown(KeyCode.P)) {
             TogglePause();
+            source.PlayOneShot(pauseSound, AudioManager.Instance.Volume);
         }
     }
     
@@ -112,6 +139,10 @@ public class GameController : MonoBehaviour {
     
     void TogglePause() {
         TransitionToState(state == GameState.Paused ? GameState.Playing : GameState.Paused);
+    }
+    
+    void SaveGame() {
+        DataManager.Instance.Save();
     }
 
 	void CheckForLevelCompletion() {
@@ -129,6 +160,8 @@ public class GameController : MonoBehaviour {
                             fading = true;
                             StartCoroutine("LoadSecretParentLevel");
                         } else {
+                            DataManager.Instance.reachedLevel = Application.loadedLevel - nonLevelScenes + 2;
+                            DataManager.Instance.Save();
                             fading = true;
                             StartCoroutine("LoadNextLevel");
                         }

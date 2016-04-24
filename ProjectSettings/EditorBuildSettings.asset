@@ -10,15 +10,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Levels/_Secrets/First boost_Secret.unity
   - enabled: 1
+    path: Assets/_Scenes/Levels/_Secrets/Run jump boost_Secret.unity
+  - enabled: 1
     path: Assets/_Scenes/Levels/First.unity
   - enabled: 1
     path: Assets/_Scenes/Levels/First button.unity
   - enabled: 1
     path: Assets/_Scenes/Levels/First boost.unity
   - enabled: 1
-    path: Assets/_Scenes/Levels/Run jump boost.unity
-  - enabled: 1
     path: Assets/_Scenes/Levels/Hold button together.unity
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Bunnyhop.unity
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Run jump boost.unity
   - enabled: 1
     path: Assets/_Scenes/Levels/Run jump timing.unity
   - enabled: 1
