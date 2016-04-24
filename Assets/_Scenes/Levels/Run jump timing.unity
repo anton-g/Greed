@@ -1586,6 +1586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
+  loseSound: {fileID: 0}
+  winSound: {fileID: 0}
   Goal1: {fileID: 53142073}
   Goal2: {fileID: 1648856539}
   SpawnDelay: 0
@@ -1606,7 +1608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1001 &1612480126
 Prefab:
   m_ObjectHideFlags: 0
@@ -2223,7 +2225,7 @@ Transform:
   - {fileID: 514952201}
   - {fileID: 2048793981}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &2030176493
 Prefab:
   m_ObjectHideFlags: 0
