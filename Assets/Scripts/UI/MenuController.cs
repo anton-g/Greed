@@ -6,7 +6,12 @@ public class MenuController : MonoBehaviour {
 	public GameController gc;
     public GameObject dataManager;
 
+    public GameObject mainMenu;
+    public GameObject settingsMenu;
+
     public Button continueBtn;
+    public Button settingsBtn;
+    public Button firstSettingsButton;
 
     void Awake() {
         if (DataManager.Instance == null)
@@ -29,10 +34,29 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void OnClickSettings() {
-		
+		mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+        
+        firstSettingsButton.Select();
 	}
 
 	public void OnClickQuit() {
-		
+        DataManager.Instance.Save();
+		Application.Quit();
 	}
+    
+    public void OnClickMuteMusic() {
+        AudioManager.Instance.MusicVolume = AudioManager.Instance.MusicVolume == 0.0f ? 1.0f : 0.0f;
+    }
+    
+    public void OnClickMuteSound() {
+        AudioManager.Instance.Volume = AudioManager.Instance.Volume == 0.0f ? 1.0f : 0.0f;
+    }
+    
+    public void OnClickSettingsBack() {
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        
+        settingsBtn.Select();
+    }
 }
