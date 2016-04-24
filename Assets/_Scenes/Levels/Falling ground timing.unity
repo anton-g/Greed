@@ -838,7 +838,7 @@ Transform:
   - {fileID: 669950557}
   - {fileID: 922489789}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1001 &357373188
 Prefab:
   m_ObjectHideFlags: 0
@@ -3117,6 +3117,48 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 416750, guid: 3a106220356bb4efbbcabcfe9f5f75fa, type: 2}
   m_PrefabInternal: {fileID: 1164898911}
+--- !u!1001 &1171477370
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413676, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1173633456
 Prefab:
   m_ObjectHideFlags: 0
@@ -3854,6 +3896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
+  loseSound: {fileID: 0}
+  winSound: {fileID: 0}
   Goal1: {fileID: 1288677662}
   Goal2: {fileID: 458044491}
   SpawnDelay: 0
@@ -3874,7 +3918,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &1585917014
 Prefab:
   m_ObjectHideFlags: 0
