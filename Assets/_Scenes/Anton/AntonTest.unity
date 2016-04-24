@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &111711475
 Transform:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 492080, guid: 3dfd859316cff46388e917d936f0af01, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.33999991
+      value: -.910000026
       objectReference: {fileID: 0}
     - target: {fileID: 492080, guid: 3dfd859316cff46388e917d936f0af01, type: 2}
       propertyPath: m_LocalPosition.z
@@ -317,6 +317,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 21257728, guid: 3dfd859316cff46388e917d936f0af01, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4fc9aa6c3e4354ea5bd192146ff53692, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3dfd859316cff46388e917d936f0af01, type: 2}
   m_IsPrefabParent: 0
@@ -473,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &805470593
 Transform:
   m_ObjectHideFlags: 0
@@ -566,6 +570,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 867753377}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &914847584
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 471814, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: af36b1c8412ea49b594dc168dd5b622e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &923643571
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +680,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
   player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
+  loseSound: {fileID: 0}
+  winSound: {fileID: 0}
   Goal1: {fileID: 1548251098}
   Goal2: {fileID: 1548251098}
   SpawnDelay: 0
@@ -839,7 +887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1628448028
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -914,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1955926063
 Transform:
   m_ObjectHideFlags: 0
