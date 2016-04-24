@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour {
     AudioSource source;
     
     void Awake() {
-        levelCount = Application.levelCount - nonLevelScenes;
+        levelCount = Application.levelCount - nonLevelScenes + 1;
         source = GetComponent<AudioSource>();
         if (DataManager.Instance == null)
             Instantiate(dataManager);
@@ -156,6 +156,7 @@ public class GameController : MonoBehaviour {
                         StartCoroutine("LoadSecretLevel");
                         break;
                     case LevelState.Completed:
+                    Debug.Log("wtf");
                         if (levelController.isSecretLevel) {
                             fading = true;
                             StartCoroutine("LoadSecretParentLevel");
@@ -184,7 +185,7 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator LoadNextLevel() {
 		//TODO should probably disable input
-		if (currentLevel < levelCount) {
+		if (currentLevel <= levelCount) {
 			float fadeTime = fader.BeginFade(1, false);
 			yield return new WaitForSeconds(fadeTime);
 			currentLevel++;

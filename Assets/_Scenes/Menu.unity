@@ -1601,7 +1601,7 @@ MonoBehaviour:
   pauseSound: {fileID: 8300000, guid: 4acab2d9154dd4d7d826b7e4f42de1e9, type: 3}
   fader: {fileID: 2022159258}
   pauseMenu: {fileID: 442471458}
-  startLevel: 1
+  startLevel: 0
 --- !u!4 &2022159260
 Transform:
   m_ObjectHideFlags: 0
