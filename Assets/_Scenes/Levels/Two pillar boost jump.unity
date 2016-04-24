@@ -115,7 +115,7 @@ Transform:
   - {fileID: 251231913}
   - {fileID: 88922054}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &24179252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,58 +1872,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1946285074}
   m_RootOrder: 3
---- !u!1 &1578757486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1578757488}
-  - 114: {fileID: 1578757487}
-  m_Layer: 0
-  m_Name: LevelController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1578757487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578757486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371782225081845378831d5c6ddd7433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Prefab: {fileID: 134912, guid: 694b539214d3442079268355c9822099, type: 2}
-  player2Prefab: {fileID: 178042, guid: 379847007da1f49b3a9f6fe84fa39884, type: 2}
-  loseSound: {fileID: 0}
-  winSound: {fileID: 0}
-  Goal1: {fileID: 1288677662}
-  Goal2: {fileID: 458044491}
-  SpawnDelay: 0
-  isSecretLevel: 0
-  spawnPoints:
-  - {x: 29, y: 10, z: 0}
-  - {x: -2, y: -5, z: 0}
-  secretTrigger: {fileID: 0}
-  state: 0
---- !u!4 &1578757488
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578757486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
 --- !u!1 &1823056969
 GameObject:
   m_ObjectHideFlags: 0
