@@ -7,6 +7,9 @@ public class PlayerCosmetics : MonoBehaviour {
     public Transform leftEye;
     public Transform rightEye;
     public SpriteRenderer graphic;
+    
+    [Header("Squish and Stretch")]
+    public float maxScaleChange = 0.45f;
 	
     Vector3 leftEyeIdle;
     Vector3 rightEyeIdle;
@@ -29,6 +32,8 @@ public class PlayerCosmetics : MonoBehaviour {
     
     public void Run(Vector3 velocity, float moveSpeed, bool collisionBelow) {
         MoveEyes(velocity, moveSpeed, collisionBelow);
+        
+        SquishAndStretch(velocity);
     }
     
     void MoveEyes(Vector3 velocity, float moveSpeed, bool collisionBelow) {
@@ -83,9 +88,6 @@ public class PlayerCosmetics : MonoBehaviour {
     }
     
     void SquishAndStretch(Vector3 velocity) {
-        //När y velociy är hög, scala om x mindre och y större
-        float maxScaleChange = 0.45f;
-        
         float scaleChange = (velocity.y / 40) * maxScaleChange;
         
         Vector3 targetScale = new Vector3(graphicOrigScale.x - scaleChange, graphicOrigScale.y, graphicOrigScale.z);
