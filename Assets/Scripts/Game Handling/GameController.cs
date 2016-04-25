@@ -156,7 +156,6 @@ public class GameController : MonoBehaviour {
                         StartCoroutine("LoadSecretLevel");
                         break;
                     case LevelState.Completed:
-                    Debug.Log("wtf");
                         if (levelController.isSecretLevel) {
                             fading = true;
                             StartCoroutine("LoadSecretParentLevel");

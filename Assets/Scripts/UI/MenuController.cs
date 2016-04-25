@@ -47,10 +47,12 @@ public class MenuController : MonoBehaviour {
     
     public void OnClickMuteMusic() {
         AudioManager.Instance.MusicVolume = AudioManager.Instance.MusicVolume == 0.0f ? 1.0f : 0.0f;
+        DataManager.Instance.MusicVolume = AudioManager.Instance.MusicVolume;
     }
     
     public void OnClickMuteSound() {
         AudioManager.Instance.Volume = AudioManager.Instance.Volume == 0.0f ? 1.0f : 0.0f;
+        DataManager.Instance.SoundVolume = AudioManager.Instance.Volume;
     }
     
     public void OnClickSettingsBack() {

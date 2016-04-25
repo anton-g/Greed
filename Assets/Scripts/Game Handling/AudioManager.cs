@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour {
     public AudioClip menuMusic;
     public AudioClip pauseMusic;
 
-    [Range(0.0f, 1.0f)]
+    [HideInInspector]
     public float Volume;
     
     float _musicVolume;
@@ -34,7 +34,8 @@ public class AudioManager : MonoBehaviour {
     }
 	
 	void Start() {
-		this.MusicVolume = Volume;
+        this.Volume = DataManager.Instance.SoundVolume;
+		this.MusicVolume = DataManager.Instance.MusicVolume;
 	}
     
     public void PlayMenuMusic() {
