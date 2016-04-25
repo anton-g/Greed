@@ -11,7 +11,8 @@ public class MenuController : MonoBehaviour {
 
     public Button continueBtn;
     public Button settingsBtn;
-    public Button firstSettingsButton;
+    public Button musicBtn;
+    public Button soundBtn;
 
     void Awake() {
         if (DataManager.Instance == null)
@@ -23,6 +24,9 @@ public class MenuController : MonoBehaviour {
             continueBtn.interactable = true;
             continueBtn.Select();
         }
+        
+        musicBtn.GetComponent<Text>().text = AudioManager.Instance.MusicVolume == 1.0f ? "MUTE MUSIC" : "UNMUTE MUSIC";
+        soundBtn.GetComponent<Text>().text = AudioManager.Instance.Volume == 1.0f ? "MUTE SOUND" : "UNMUTE SOUND";
     }
 
 	public void OnClickContinue() {
@@ -37,7 +41,7 @@ public class MenuController : MonoBehaviour {
 		mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
         
-        firstSettingsButton.Select();
+        musicBtn.Select();
 	}
 
 	public void OnClickQuit() {
@@ -46,11 +50,25 @@ public class MenuController : MonoBehaviour {
 	}
     
     public void OnClickMuteMusic() {
-        AudioManager.Instance.MusicVolume = AudioManager.Instance.MusicVolume == 0.0f ? 1.0f : 0.0f;
+        if (AudioManager.Instance.MusicVolume == 0.0f) {
+            AudioManager.Instance.MusicVolume = 1.0f;
+            musicBtn.GetComponent<Text>().text = "MUTE MUSIC";
+        } else {
+            AudioManager.Instance.MusicVolume = 0.0f;
+            musicBtn.GetComponent<Text>().text = "UNMUTE MUSIC";
+        }
+        DataManager.Instance.MusicVolume = AudioManager.Instance.MusicVolume;
     }
     
     public void OnClickMuteSound() {
-        AudioManager.Instance.Volume = AudioManager.Instance.Volume == 0.0f ? 1.0f : 0.0f;
+        if (AudioManager.Instance.Volume == 0.0f) {
+            AudioManager.Instance.Volume = 1.0f;
+            soundBtn.GetComponent<Text>().text = "MUTE SOUND";
+        } else {
+            AudioManager.Instance.Volume = 0.0f;
+            soundBtn.GetComponent<Text>().text = "UNMUTE SOUND";
+        }
+        DataManager.Instance.SoundVolume = AudioManager.Instance.Volume;
     }
     
     public void OnClickSettingsBack() {

@@ -10,6 +10,26 @@ public class DataManager : MonoBehaviour {
 
     private string savePath = Application.persistentDataPath + "/gameData.dat"; 
 
+    public float MusicVolume {
+        get {
+            return PlayerPrefs.GetFloat("music", 1.0f);
+        }
+        set {
+            PlayerPrefs.SetFloat("music", value);
+            PlayerPrefs.Save();
+        }
+    }
+    
+    public float SoundVolume {
+        get {
+            return PlayerPrefs.GetFloat("sound", 1.0f);
+        }
+        set {
+            PlayerPrefs.SetFloat("sound", value);
+            PlayerPrefs.Save();
+        }
+    }
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
