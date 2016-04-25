@@ -1181,7 +1181,8 @@ MonoBehaviour:
   settingsMenu: {fileID: 1781125620}
   continueBtn: {fileID: 1647672301}
   settingsBtn: {fileID: 551039802}
-  firstSettingsButton: {fileID: 164230051}
+  musicBtn: {fileID: 164230051}
+  soundBtn: {fileID: 625752259}
 --- !u!4 &857020481
 Transform:
   m_ObjectHideFlags: 0

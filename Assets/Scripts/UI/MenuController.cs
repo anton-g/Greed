@@ -25,7 +25,8 @@ public class MenuController : MonoBehaviour {
             continueBtn.Select();
         }
         
-        
+        musicBtn.GetComponent<Text>().text = AudioManager.Instance.MusicVolume == 1.0f ? "MUTE MUSIC" : "UNMUTE MUSIC";
+        soundBtn.GetComponent<Text>().text = AudioManager.Instance.Volume == 1.0f ? "MUTE SOUND" : "UNMUTE SOUND";
     }
 
 	public void OnClickContinue() {
