@@ -430,6 +430,7 @@ MonoBehaviour:
   leftEye: {fileID: 469848}
   rightEye: {fileID: 436648}
   graphic: {fileID: 21262188}
+  maxScaleChange: .449999988
 --- !u!212 &21262188
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -457,7 +458,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c2aa73e953ed94e02990c0d53e775aee, type: 3}
-  m_Color: {r: 1, g: .707910776, b: .338235319, a: 1}
+  m_Color: {r: .449178189, g: .911764681, b: .490651339, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -520,15 +521,15 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Color.r
-      value: 1
+      value: .130839124
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.g
-      value: .707910776
+      value: .889705896
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
-      value: .338235319
+      value: .198875263
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
