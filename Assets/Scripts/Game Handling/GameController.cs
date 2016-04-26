@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour {
     public int nonLevelScenes = 1;
     public GameObject dataManager;
     
+    //TODO consider refactor to levelController
+    public int restartDelay = 1;
+    
     [Header("Sound")]
     public AudioClip pauseSound;
     
@@ -194,6 +197,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	IEnumerator RestartCurrentLevel() {
+        yield return new WaitForSeconds(restartDelay);
 		float fadeTime = fader.BeginFade(1, true);
 		yield return new WaitForSeconds(fadeTime);
 		Application.LoadLevel(Application.loadedLevelName);
