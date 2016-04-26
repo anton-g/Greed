@@ -430,6 +430,8 @@ MonoBehaviour:
   leftEye: {fileID: 469848}
   rightEye: {fileID: 436648}
   graphic: {fileID: 21262188}
+  minBlinkInterval: 3
+  maxBlinkInterval: 12
   maxScaleChange: .449999988
 --- !u!212 &21262188
 SpriteRenderer:
@@ -521,15 +523,15 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Color.r
-      value: .130839124
+      value: .449178189
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.g
-      value: .889705896
+      value: .911764681
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
-      value: .198875263
+      value: .490651339
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -563,6 +565,14 @@ Prefab:
       propertyPath: highFallSound
       value: 
       objectReference: {fileID: 8300000, guid: abbc5f7a52ed049feb93ccc36725641a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: minBlinkInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxBlinkInterval
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134912}

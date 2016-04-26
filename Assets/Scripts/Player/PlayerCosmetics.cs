@@ -8,6 +8,9 @@ public class PlayerCosmetics : MonoBehaviour {
     public Transform rightEye;
     public SpriteRenderer graphic;
     
+    public float minBlinkInterval = 5f;
+    public float maxBlinkInterval = 20f;
+    
     [Header("Squish and Stretch")]
     public float maxScaleChange = 0.45f;
 	
@@ -26,7 +29,7 @@ public class PlayerCosmetics : MonoBehaviour {
     void Start() {
         graphicOrigScale = graphic.transform.localScale;
         
-        eyeBlinkTime = Random.Range(5f, 20f);
+        eyeBlinkTime = Random.Range(minBlinkInterval, maxBlinkInterval);
         InvokeRepeating("BlinkEyes", eyeBlinkTime, eyeBlinkTime);
     }
     
