@@ -48,11 +48,13 @@ public class LevelController : MonoBehaviour {
 		if (state != LevelState.Failed && (!player1Object.activeSelf || !player2Object.activeSelf)) {            
 			state = LevelState.Failed;
 			source.PlayOneShot(loseSound, AudioManager.Instance.Volume);
+			DisablePlayerInput();
 		}
 
 		if (state != LevelState.Completed && (Goal1.playerIsInGoal && Goal2.playerIsInGoal)) {
 			state = LevelState.Completed;
 			source.PlayOneShot(winSound, AudioManager.Instance.Volume);
+			DisablePlayerInput();
 		}
         
         if (secretTrigger != null && secretTrigger.collected) {
@@ -64,6 +66,11 @@ public class LevelController : MonoBehaviour {
         player1Object = Instantiate(player1Prefab, spawnPoints[0], Quaternion.identity) as GameObject;
 		player2Object = Instantiate(player2Prefab, spawnPoints[1], Quaternion.identity) as GameObject;
     }
+	
+	void DisablePlayerInput() {
+		player1Object.GetComponent<Player>().inputEnabled = false;
+		player2Object.GetComponent<Player>().inputEnabled = false;
+	}
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.yellow;

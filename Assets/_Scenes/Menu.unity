@@ -2047,6 +2047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonLevelScenes: 3
   dataManager: {fileID: 144160, guid: 867639048ad124ffa833cf250332e33b, type: 2}
+  restartDelay: 1
   pauseSound: {fileID: 8300000, guid: 4acab2d9154dd4d7d826b7e4f42de1e9, type: 3}
   fader: {fileID: 2022159258}
   pauseMenu: {fileID: 442471458}

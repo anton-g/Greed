@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	public AudioClip highFallSound;
     
 	[Header("Movement")]
+	public bool inputEnabled = true;
 	public float moveSpeed = 6;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour {
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
     }
     
-	void Update() {
+	void Update() {		
 		CheckCrushed();
 
 		if (controller.collisions.death) {
@@ -96,12 +97,14 @@ public class Player : MonoBehaviour {
 		moveDir = Input.GetAxisRaw(HorizontalButtonName);
 
 		Vector2 input = new Vector2 (moveDir, Input.GetAxisRaw ("Vertical"));
-
+		
+		if (!inputEnabled) input = Vector2.zero;
+		
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
         currentGhostJumpTime += Time.deltaTime; //Update ghost jump time
-		if (Input.GetButtonDown (JumpButtonName)) {
+		if (Input.GetButtonDown (JumpButtonName) && inputEnabled) {
 			if (controller.collisions.below || CanGhostJump()) {
 				Jump();
 			}
