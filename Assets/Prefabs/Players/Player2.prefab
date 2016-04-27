@@ -64,6 +64,7 @@ GameObject:
   - 114: {fileID: 11427222}
   - 114: {fileID: 11471098}
   - 82: {fileID: 8277196}
+  - 50: {fileID: 5008724}
   m_Layer: 9
   m_Name: Player2
   m_TagString: Player2
@@ -111,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 164744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.100000001, y: .0799999982, z: -.100000001}
-  m_LocalScale: {x: .0599999987, y: .219999999, z: 1}
+  m_LocalScale: {x: .0799999982, y: .219999999, z: 1}
   m_Children: []
   m_Father: {fileID: 419448}
   m_RootOrder: 0
@@ -176,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 111188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .100000001, y: .0799999982, z: -.100000001}
-  m_LocalScale: {x: .0599999987, y: .219999999, z: 1}
+  m_LocalScale: {x: .0799999982, y: .219999999, z: 1}
   m_Children: []
   m_Father: {fileID: 419448}
   m_RootOrder: 1
@@ -246,6 +247,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164744}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!50 &5008724
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178042}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!60 &6025584
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -388,6 +405,7 @@ MonoBehaviour:
   crushParticle: {fileID: 117726, guid: 9addf5f6991204cba8330c6f9604906b, type: 2}
   bounceSound: {fileID: 8300000, guid: 9292d49c01bbd4c1888dc5adb2c6b88f, type: 3}
   highFallSound: {fileID: 8300000, guid: abbc5f7a52ed049feb93ccc36725641a, type: 3}
+  inputEnabled: 1
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2

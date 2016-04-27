@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88875413, y: 1.87050605, z: 0}
+  m_LocalPosition: {x: 17.3095741, y: 3.38312531, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 436064}
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 195716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .100000001, y: .0799999982, z: -.100000001}
-  m_LocalScale: {x: .0599999987, y: .219999999, z: 1}
+  m_LocalScale: {x: .0799999982, y: .219999999, z: 1}
   m_Children: []
   m_Father: {fileID: 478572}
   m_RootOrder: 1
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 129762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.100000001, y: .0799999982, z: -.100000001}
-  m_LocalScale: {x: .0599999987, y: .219999999, z: 1}
+  m_LocalScale: {x: .0799999982, y: .219999999, z: 1}
   m_Children: []
   m_Father: {fileID: 478572}
   m_RootOrder: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   crushParticle: {fileID: 117726, guid: 122703cba0f3341df9e8883f50c1e233, type: 2}
   bounceSound: {fileID: 8300000, guid: 9292d49c01bbd4c1888dc5adb2c6b88f, type: 3}
   highFallSound: {fileID: 8300000, guid: abbc5f7a52ed049feb93ccc36725641a, type: 3}
+  inputEnabled: 1
   moveSpeed: 20
   maxJumpHeight: 7
   minJumpHeight: 2

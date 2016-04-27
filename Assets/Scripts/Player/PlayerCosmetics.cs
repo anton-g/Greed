@@ -51,9 +51,9 @@ public class PlayerCosmetics : MonoBehaviour {
         //Vertical
         if (velocity.y > 0) {
             //Up
-            leftY = 0.18f * (velocity.y / 40) + leftEyeIdle.y;
-            rightY = 0.18f * (velocity.y / 40) + rightEyeIdle.y;
-            scale *= velocity.y / 40;
+            leftY = 0.3f * (velocity.y / 40) + leftEyeIdle.y;
+            rightY = 0.3f * (velocity.y / 40) + rightEyeIdle.y;
+            scale *= velocity.y / 33;
             eyeDistanceModifier = 0.04f * (velocity.y / 40);
         } else if (velocity.y < 0 && !collisionBelow) {
             //Down
@@ -78,11 +78,11 @@ public class PlayerCosmetics : MonoBehaviour {
         
         Vector3 leftPos = new Vector3(leftX, leftY, -0.1f);
         leftEye.localPosition = Vector3.Lerp(leftEye.localPosition, leftPos, 0.1f);
-        leftEye.localScale = Vector3.Lerp(leftEye.localScale, new Vector3(leftEye.localScale.x, scale, leftEye.localScale.z), 0.05f);
+        leftEye.localScale = Vector3.Lerp(leftEye.localScale, new Vector3(eyesOrigScale.x, scale, leftEye.localScale.z), 0.05f);
         
         Vector3 rightPos = new Vector3(rightX, rightY, -0.1f);
         rightEye.localPosition = Vector3.Lerp(rightEye.localPosition, rightPos, 0.1f); 
-        rightEye.localScale = Vector3.Lerp(rightEye.localScale, new Vector3(rightEye.localScale.x, scale, rightEye.localScale.z), 0.05f);
+        rightEye.localScale = Vector3.Lerp(rightEye.localScale, new Vector3(eyesOrigScale.x, scale, rightEye.localScale.z), 0.05f);
     }
     
     void BlinkEyes() {
