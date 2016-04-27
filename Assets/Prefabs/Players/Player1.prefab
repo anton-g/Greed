@@ -431,8 +431,8 @@ MonoBehaviour:
   leftEye: {fileID: 469848}
   rightEye: {fileID: 436648}
   graphic: {fileID: 21262188}
-  minBlinkInterval: 3
-  maxBlinkInterval: 12
+  minBlinkInterval: 4
+  maxBlinkInterval: 9
   maxScaleChange: .449999988
 --- !u!212 &21262188
 SpriteRenderer:
@@ -568,11 +568,11 @@ Prefab:
       objectReference: {fileID: 8300000, guid: abbc5f7a52ed049feb93ccc36725641a, type: 3}
     - target: {fileID: 0}
       propertyPath: minBlinkInterval
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxBlinkInterval
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
