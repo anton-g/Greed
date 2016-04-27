@@ -106,4 +106,9 @@ public class PlayerCosmetics : MonoBehaviour {
         rightEye.gameObject.SetActive(true);
         leftEye.gameObject.SetActive(true);
     }
+    
+    public void Squint() {
+        leftEye.localScale = new Vector3(leftEye.localScale.x * 1.4f, leftEye.localScale.y * 0.5f, leftEye.localScale.y);
+        rightEye.localScale = new Vector3(rightEye.localScale.x * 1.4f, rightEye.localScale.y * 0.5f, rightEye.localScale.y);
+    }
 }

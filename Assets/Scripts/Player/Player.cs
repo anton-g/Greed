@@ -103,7 +103,7 @@ public class Player : MonoBehaviour {
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
-        currentGhostJumpTime += Time.deltaTime; //Update ghost jump time
+        currentGhostJumpTime += Time.deltaTime;
 		if (Input.GetButtonDown (JumpButtonName) && inputEnabled) {
 			if (controller.collisions.below || CanGhostJump()) {
 				Jump();
@@ -124,9 +124,12 @@ public class Player : MonoBehaviour {
         if (controller.collisions.below) {
             if (velocity.y < -60.0f) {
                 camShake.Shake(0.2f, 0.1f);
-				
 				source.PlayOneShot(highFallSound, AudioManager.Instance.Volume);
-            }
+            } else if (velocity.y < -20.0f) {
+				
+				if (!controller.collisions.playerCollisionBelow)
+					cosmetics.Squint();
+			}
 
             currentGhostJumpTime = 0;            
             velocity.y = 0;
