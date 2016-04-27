@@ -64,7 +64,6 @@ GameObject:
   - 114: {fileID: 11427222}
   - 114: {fileID: 11471098}
   - 82: {fileID: 8277196}
-  - 50: {fileID: 5008724}
   m_Layer: 9
   m_Name: Player2
   m_TagString: Player2
@@ -247,22 +246,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164744}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!50 &5008724
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178042}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!60 &6025584
 PolygonCollider2D:
   m_ObjectHideFlags: 1
