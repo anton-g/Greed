@@ -48,13 +48,13 @@ public class LevelController : MonoBehaviour {
 		if (state != LevelState.Failed && (!player1Object.activeSelf || !player2Object.activeSelf)) {            
 			state = LevelState.Failed;
 			source.PlayOneShot(loseSound, AudioManager.Instance.Volume);
-			DisablePlayerInput();
+			TogglePlayerInput();
 		}
 
 		if (state != LevelState.Completed && (Goal1.playerIsInGoal && Goal2.playerIsInGoal)) {
 			state = LevelState.Completed;
 			source.PlayOneShot(winSound, AudioManager.Instance.Volume);
-			DisablePlayerInput();
+			TogglePlayerInput();
 		}
         
         if (secretTrigger != null && secretTrigger.collected) {
@@ -67,9 +67,11 @@ public class LevelController : MonoBehaviour {
 		player2Object = Instantiate(player2Prefab, spawnPoints[1], Quaternion.identity) as GameObject;
     }
 	
-	void DisablePlayerInput() {
-		player1Object.GetComponent<Player>().inputEnabled = false;
-		player2Object.GetComponent<Player>().inputEnabled = false;
+	public void TogglePlayerInput() {
+		Player p1 = player1Object.GetComponent<Player>();
+		Player p2 = player2Object.GetComponent<Player>();
+		p1.inputEnabled = !p1.inputEnabled;
+		p2.inputEnabled = !p2.inputEnabled;
 	}
 
 	void OnDrawGizmos() {

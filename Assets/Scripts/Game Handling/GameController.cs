@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour {
     
     void TogglePause() {
         TransitionToState(state == GameState.Paused ? GameState.Playing : GameState.Paused);
+        levelController.TogglePlayerInput();
     }
     
     void SaveGame() {
